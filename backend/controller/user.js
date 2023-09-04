@@ -2,6 +2,7 @@ import bcrypt from 'bcrypt';
 import User from '../models/users.js';
 import{ validateEmail, validateLength, generateUsername } from '../helper/validation.js'
 import { generateToken } from '../helper/token.js';
+import sendVerificationEmail from '../helper/mailer.js';
 
 export const home = (req, res) => {
     res.send('Hey i am user')
@@ -77,6 +78,8 @@ export const register = async (req, res) => {
             const emailToken = generateToken({
                 id: doc._id.toString()
             }, '24h');
+            const url = `${process.env.BASE_URL}/activate/${emailToken}`;
+            sendVerificationEmail(doc.email, doc.first_name, url);
             res.json(doc);
         });
     } catch(error) {
