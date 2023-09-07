@@ -5,7 +5,7 @@ export const validateEmail = email => {
 }
 
 export const validateLength = (text, min = 1, max = 100) => {
-    if(text.length > max || text.length < min) {
+    if (text.length > max || text.length < min) {
         return false;
     }
     return true;
@@ -16,8 +16,8 @@ export const generateUsername = async userName => {
     let name = userName;
 
     do {
-        let isUserName = await User.findOne({username: name});
-        if(isUserName) {
+        let isUserName = await User.findOne({ username: name });
+        if (isUserName) {
             name += (+new Date() * Math.random()).toString().substring(0, 1);
             flage = true;
         } else {

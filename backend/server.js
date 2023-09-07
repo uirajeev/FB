@@ -17,7 +17,7 @@ const app = express();
 app.use(cors());
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -34,7 +34,7 @@ mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   dbName: 'facebook'
 }).then(() => console.log('DB connected...'))
-.catch(() => console.error('DB not connected...'));
+  .catch(() => console.error('DB not connected...'));
 
 app.get('/', (req, res) => {
   res.send('Welcome in hell');

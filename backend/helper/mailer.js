@@ -1,10 +1,10 @@
 import nodemailer from 'nodemailer';
-import {google} from 'googleapis';
+import { google } from 'googleapis';
 
-const {OAuth2} = google.auth;
+const { OAuth2 } = google.auth;
 const authLink = "https://developers.google.com/oauthplayground";
 
-const {EMAIL, MAILING_ID, MAILING_SECRET, MAILING_REFRESH } = process.env;
+const { EMAIL, MAILING_ID, MAILING_SECRET, MAILING_REFRESH } = process.env;
 
 const auth = new OAuth2(MAILING_ID, MAILING_SECRET, authLink);
 
@@ -33,7 +33,7 @@ export default (email, name, url) => {
     };
 
     stmp.sendMail(mailOptions, (err, res) => {
-        if(err) {
+        if (err) {
             return err;
         }
         return res;

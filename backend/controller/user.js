@@ -5,9 +5,6 @@ import { validateEmail, validateLength, generateUsername } from '../helper/valid
 import { generateToken } from '../helper/token.js';
 import sendVerificationEmail from '../helper/mailer.js';
 
-export const home = (req, res) => {
-    res.send('Hey i am user')
-}
 // Send email verification mail to user
 function sendMail(doc) {
     const emailToken = generateToken({

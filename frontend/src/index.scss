@@ -35,3 +35,39 @@ a {
   --shadow-3: rgba(0, 0, 0, 0.3);
   --shadow-inset: rgba(255, 255, 255, 0.5);
 }
+
+/*---------Buttons----------*/
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+
+  &-blue {
+    background: var(--blue-color);
+    color: #fff;
+  }
+
+  &-green {
+    background: var(--green-color);
+    color: #fff;
+  }
+}
+
+
+/*---------Buttons End----------*/
+
+/*---------Input error ---------*/
+.input {
+  &-error{
+    border-color: #b94a48 !important;
+  }
+}
