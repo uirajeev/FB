@@ -1,16 +1,20 @@
 {
-    "login": {
-        "message": "Facebook helps you connect and share with the people in your life.",
-        "loginButton": "Login",
-        "forgotLabel": "Forgotten password?",
-        "createAccount": "Crearte Account",
-        "createPage": "<strong>Create a Page</strong> for a celebrity, brand or business.",
-        "emailPlaceholder": "Email address or phone number",
-        "passwordPlaceholder": "Password",
-        "emailRequire": "Email address is require.",
-        "emailinvalid": "Please enter a valid email address.",
-        "passwordRequire": "Please enter password.",
-        "passwordMin": "Password shoul be at least 6 characters in length.",
-        "passwordMax": "Password should not exceed 32 characters in length."
-    }
+  "login": {
+    "message": "Facebook helps you connect and share with the people in your life.",
+    "loginButton": "Login",
+    "forgotLabel": "Forgotten password?",
+    "createAccount": "Crearte Account",
+    "createPage": "<strong>Create a Page</strong> for a celebrity, brand or business.",
+    "emailPlaceholder": "Email address or phone number",
+    "passwordPlaceholder": "Password",
+    "emailRequire": "Email address is require.",
+    "emailinvalid": "Please enter a valid email address.",
+    "passwordRequire": "Please enter password.",
+    "passwordMin": "Password shoul be at least 6 characters in length.",
+    "passwordMax": "Password should not exceed 32 characters in length."
+  },
+  "signup": {
+    "header": "Sign Up",
+    "subheader": "it's quick and easy"
+  }
 }

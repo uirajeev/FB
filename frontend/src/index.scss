@@ -62,12 +62,18 @@ a {
   }
 }
 
-
 /*---------Buttons End----------*/
 
 /*---------Input error ---------*/
 .input {
-  &-error{
+  &-error {
     border-color: #b94a48 !important;
   }
+}
+
+.blur {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.768);
+  z-index: 999;
 }
