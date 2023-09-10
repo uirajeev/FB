@@ -5,7 +5,7 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 
 import LoginInut from '../form/login';
-import './style.scss';
+import './loginForm.scss';
 
 const loginForm = {
   email: '',

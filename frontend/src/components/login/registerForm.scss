@@ -2,12 +2,12 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   background: var(--bg-primary);
   box-shadow: 0 1px 2px var(--shadow-1);
   border-radius: 10px;
   padding: 15px;
-  width: 350px;
+  width: 320px;
   height: fit-content;
   color: var(--color-primary);
 
@@ -34,6 +34,129 @@
     span {
       font-size: 15px;
       color: var(--color-secondary);
+    }
+  }
+
+  &-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-row {
+    width: 100%;
+    padding: 7px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &-col {
+    position: relative;
+    align-self: flex-start;
+    margin-bottom: 10px;
+    padding: 0 10px;
+
+    &-header {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 13px;
+      color: var(--color-secondary);
+
+      i {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &-grid {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    height: 35px;
+    width: 100%;
+
+    select {
+      width: 90px;
+      font-size: 16px;
+      color: var(--color-primary);
+      background: var(--bg-primary);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    label {
+      width: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      color: var(--color-primary);
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid var(--color-secondary);
+      padding: 0 10px;
+    }
+  }
+
+  &-info {
+    font-size: 11px;
+    color: var(--color-secondary);
+
+    p {
+      margin: 10px 0;
+
+      a {
+        color: var(--blue-color);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0 10px 0;
+
+    button {
+      width: 70%;
+    }
+  }
+}
+
+@media (min-width: 539px) {
+  .register {
+    width: 400px;
+
+    &-row {
+      flex-direction: row;
+
+      input {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 924px) {
+  .register {
+    &-row {
+      :nth-child(2) {
+        .input-error-desktop {
+          left: 106%;
+          .input-arrow-left {
+            transform: rotate(180deg);
+            right: 100%;
+          }
+        }
+      }
     }
   }
 }

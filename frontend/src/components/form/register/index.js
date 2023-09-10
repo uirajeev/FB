@@ -2,28 +2,14 @@ import './style.scss';
 import { ErrorMessage, useField } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 
-const LoginInut = ({ placeholder, type, bottom, ...props }) => {
+const RegisterInut = ({ placeholder, type, ...props }) => {
   const [fields, meta] = useField(props.name);
   const desktopView = useMediaQuery({
-    query: '(min-width: 850px)',
+    query: '(min-width: 924px)',
   });
 
   return (
-    <div className="login-input">
-      {meta.touched && meta.error && !bottom && (
-        <div
-          className={
-            desktopView
-              ? 'input-error-message input-error-desktop'
-              : 'input-error-message'
-          }
-        >
-          <ErrorMessage name={fields.name} />
-          <div
-            className={desktopView ? 'input-arrow-left' : 'input-arrow-top'}
-          ></div>
-        </div>
-      )}
+    <div className="register-input">
       <input
         className={meta.touched && meta.error ? 'input-error' : ''}
         type={type}
@@ -31,7 +17,7 @@ const LoginInut = ({ placeholder, type, bottom, ...props }) => {
         placeholder={placeholder}
         {...fields}
       />
-      {meta.touched && meta.error && bottom && (
+      {meta.touched && meta.error && (
         <div
           className={
             desktopView
@@ -45,14 +31,9 @@ const LoginInut = ({ placeholder, type, bottom, ...props }) => {
           ></div>
         </div>
       )}
-      {meta.touched && meta.error && (
-        <i
-          className="error_icon"
-          style={{ top: `${!bottom && !desktopView ? '63%' : '15px'}` }}
-        ></i>
-      )}
+      {meta.touched && meta.error && <i className="error_icon"></i>}
     </div>
   );
 };
 
-export default LoginInut;
+export default RegisterInut;
