@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 const RegisterInut = ({ placeholder, type, ...props }) => {
   const [fields, meta] = useField(props.name);
   const desktopView = useMediaQuery({
-    query: '(min-width: 924px)',
+    query: '(min-width: 1024px)',
   });
 
   return (

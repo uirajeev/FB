@@ -1,0 +1,60 @@
+.gender {
+  &-grid {
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      color: var(--color-primary);
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid var(--color-secondary);
+      padding: 0 10px;
+      height: 35px;
+    }
+    .input {
+      &-error-message {
+        position: relative;
+        padding: 15px 10px;
+        background: #b94a48;
+        color: #fff;
+        font-size: 13px;
+        border-radius: 7px;
+        margin-bottom: 15px;
+        transform: translateY(2px);
+        grid-column: 1 / 4;
+        z-index: 9;
+      }
+
+      &-error-desktop {
+        position: absolute;
+        width: 300px;
+        left: -310px;
+        top: 5px;
+        margin: 0;
+      }
+
+      &-arrow-bottom {
+        border-bottom: 10px solid #b94a48;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        position: absolute;
+        top: -9px;
+      }
+
+      &-arrow-left {
+        border-left: 10px solid #b94a48;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        position: absolute;
+        right: -9px;
+        top: calc(50% - 10px);
+      }
+    }
+  }
+}

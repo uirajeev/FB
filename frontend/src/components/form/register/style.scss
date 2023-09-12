@@ -44,17 +44,9 @@
 
     &-error-desktop {
       position: absolute;
-      width: 250px;
-      left: -260px;
+      width: 300px;
+      left: -310px;
       top: -3px;
-    }
-
-    &-arrow-top {
-      border-top: 10px solid #b94a48;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      position: absolute;
-      bottom: -9px;
     }
 
     &-arrow-bottom {
@@ -71,7 +63,7 @@
       border-bottom: 10px solid transparent;
       position: absolute;
       right: -9px;
-      top: calc(50% - 10px);
+      top: 15px;
     }
   }
 }

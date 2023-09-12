@@ -4,6 +4,8 @@ import { Form, Formik } from 'formik';
 import { useTranslation, Trans } from 'react-i18next';
 import * as Yup from 'yup';
 import RegisterInut from '../form/register';
+import DateSelector from '../form/register/DateSelector';
+import GenderSelector from '../form/register/GenderSelector';
 
 import './registerForm.scss';
 
@@ -42,7 +44,6 @@ const RegisterForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setUser({ ...user, [name]: value });
   };
 
@@ -64,11 +65,10 @@ const RegisterForm = () => {
       .required(t('signup.passwordRequire'))
       .min(6, t('signup.passwordMin'))
       .max(32, t('signup.passwordMax')),
-    // bYear,
-    // bMonth,
-    // bDay,
-    // gender,
   });
+
+  const [dateError, setDateError] = useState('');
+  const [genderError, setGenderError] = useState('');
 
   return (
     <div className="blur">
@@ -90,6 +90,21 @@ const RegisterForm = () => {
             gender,
           }}
           validationSchema={validation}
+          onSubmit={() => {
+            const currentDate = new Date();
+            const selectedDate = new Date(bYear, bMonth - 1, bDay);
+            const minDate = new Date(1970 + 18, 0, 1);
+            if (currentDate - selectedDate < minDate) {
+              setDateError(t('signup.dateError'));
+            } else {
+              setDateError('');
+            }
+            if (gender === '') {
+              setGenderError(t('signup.genderError'));
+            } else {
+              setGenderError('');
+            }
+          }}
         >
           {(formik) => (
             <Form className="register-form">
@@ -127,66 +142,25 @@ const RegisterForm = () => {
                 <div className="register-col-header">
                   {t('signup.birthLabel')} <i className="info_icon"></i>
                 </div>
-                <div className="register-grid">
-                  <select name="bDay" value={bDay} onChange={handleChange}>
-                    {days.map((day) => (
-                      <option value={day} key={day}>
-                        {day}
-                      </option>
-                    ))}
-                  </select>
-                  <select name="bMonth" value={bMonth} onChange={handleChange}>
-                    {bMonths.map((month) => (
-                      <option value={month} key={month}>
-                        {month}
-                      </option>
-                    ))}
-                  </select>
-                  <select name="bYear" value={bYear} onChange={handleChange}>
-                    {bYears.map((year) => (
-                      <option value={year} key={year}>
-                        {year}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                <DateSelector
+                  bDay={bDay}
+                  bMonth={bMonth}
+                  bYear={bYear}
+                  days={days}
+                  bMonths={bMonths}
+                  bYears={bYears}
+                  handleChange={handleChange}
+                  dateError={dateError}
+                />
               </div>
               <div className="register-col">
                 <div className="register-col-header">
                   {t('signup.gender')} <i className="info_icon"></i>
                 </div>
-                <div className="register-grid">
-                  <label htmlFor="male">
-                    {t('signup.male')}
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="male"
-                      value="male"
-                      onChange={handleChange}
-                    />
-                  </label>
-                  <label htmlFor="femail">
-                    {t('signup.femail')}
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="femail"
-                      value="femail"
-                      onChange={handleChange}
-                    />
-                  </label>
-                  <label htmlFor="other">
-                    {t('signup.other')}
-                    <input
-                      type="radio"
-                      name="gender"
-                      id="other"
-                      value="other"
-                      onChange={handleChange}
-                    />
-                  </label>
-                </div>
+                <GenderSelector
+                  handleChange={handleChange}
+                  genderError={genderError}
+                />
               </div>
               <div className="register-info">
                 <Trans i18nKey="signup.textContactInfo">
@@ -206,7 +180,9 @@ const RegisterForm = () => {
                 </Trans>
               </div>
               <div className="register-btn">
-                <button className="btn btn-green">{t('signup.header')}</button>
+                <button type="submit" className="btn btn-green">
+                  {t('signup.header')}
+                </button>
               </div>
             </Form>
           )}
