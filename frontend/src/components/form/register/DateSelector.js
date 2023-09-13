@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 
 import './dateSelector.scss';
@@ -13,7 +12,6 @@ const DateSelector = ({
   handleChange,
   dateError,
 }) => {
-  const { t } = useTranslation();
   const desktopView = useMediaQuery({
     query: '(min-width: 1024px)',
   });

@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
 }
 html {
   overflow-y: scroll;
@@ -70,7 +70,12 @@ a {
     border-color: #b94a48 !important;
   }
 }
-
+.error-text {
+  color: #b94a48;
+}
+.success-text {
+  color: var(--green-color);
+}
 .blur {
   position: fixed;
   inset: 0;

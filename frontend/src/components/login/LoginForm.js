@@ -18,6 +18,7 @@ const LoginForm = () => {
   const { email, password } = login;
 
   const heandleChange = (e) => {
+    console.log(e.target.value);
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
   };
@@ -45,6 +46,9 @@ const LoginForm = () => {
               password,
             }}
             validationSchema={loginValidation}
+            onSubmit={() => {
+              console.log(login);
+            }}
           >
             {(formik) => (
               <Form>

@@ -2,7 +2,7 @@ import './style.scss';
 import { ErrorMessage, useField } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 
-const LoginInut = ({ placeholder, type, bottom, ...props }) => {
+const LoginInut = ({ placeholder, type, handleChange, bottom, ...props }) => {
   const [fields, meta] = useField(props.name);
   const desktopView = useMediaQuery({
     query: '(min-width: 850px)',
@@ -29,6 +29,7 @@ const LoginInut = ({ placeholder, type, bottom, ...props }) => {
         type={type}
         name={fields.name}
         placeholder={placeholder}
+        onChange={handleChange}
         {...fields}
       />
       {meta.touched && meta.error && bottom && (

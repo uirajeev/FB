@@ -3,24 +3,27 @@ import { Link } from 'react-router-dom';
 import { Form, Formik } from 'formik';
 import { useTranslation, Trans } from 'react-i18next';
 import * as Yup from 'yup';
+import DotLoader from 'react-spinners/DotLoader';
+import axios from 'axios';
 import RegisterInut from '../form/register';
 import DateSelector from '../form/register/DateSelector';
 import GenderSelector from '../form/register/GenderSelector';
 
 import './registerForm.scss';
 
+const userInfo = {
+  first_name: '',
+  last_name: '',
+  email: '',
+  password: '',
+  bYear: new Date().getFullYear(),
+  bMonth: new Date().getMonth() + 1,
+  bDay: new Date().getDate(),
+  gender: '',
+};
+
 const RegisterForm = () => {
   const { t } = useTranslation();
-  const userInfo = {
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: '',
-    bYear: new Date().getFullYear(),
-    bMonth: new Date().getMonth() + 1,
-    bDay: new Date().getDate(),
-    gender: '',
-  };
   const [user, setUser] = useState(userInfo);
 
   const {
@@ -69,6 +72,35 @@ const RegisterForm = () => {
 
   const [dateError, setDateError] = useState('');
   const [genderError, setGenderError] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const registerSubmit = () => {
+    setLoading(true);
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
+        first_name,
+        last_name,
+        email,
+        password,
+        bYear,
+        bMonth,
+        bDay,
+        gender,
+      })
+      .then(function ({ data }) {
+        console.log(data);
+        setError('');
+        setSuccess(data.message);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        setLoading(false);
+        setError(t(error.response.data.message));
+        setSuccess(t(''));
+      });
+  };
 
   return (
     <div className="blur">
@@ -96,13 +128,12 @@ const RegisterForm = () => {
             const minDate = new Date(1970 + 18, 0, 1);
             if (currentDate - selectedDate < minDate) {
               setDateError(t('signup.dateError'));
-            } else {
-              setDateError('');
-            }
-            if (gender === '') {
+            } else if (gender === '') {
               setGenderError(t('signup.genderError'));
             } else {
+              setDateError('');
               setGenderError('');
+              registerSubmit();
             }
           }}
         >
@@ -184,6 +215,10 @@ const RegisterForm = () => {
                   {t('signup.header')}
                 </button>
               </div>
+
+              <div className="error-text">{error}</div>
+              <div className="success-text">{success}</div>
+              <DotLoader color="#1876f2" size={30} loading={loading} />
             </Form>
           )}
         </Formik>
