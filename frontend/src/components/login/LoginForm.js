@@ -1,27 +1,25 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { useTranslation, Trans } from 'react-i18next';
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/slices/userSlice';
+import Cookies from 'js-cookie';
+import DotLoader from 'react-spinners/DotLoader';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import LoginInut from '../form/login';
 import './loginForm.scss';
 
-const loginForm = {
-  email: '',
-  password: '',
-};
-
-const LoginForm = () => {
+const LoginForm = ({ setRegister }) => {
   const { t } = useTranslation();
-  const [login, setLogin] = useState(loginForm);
-  const { email, password } = login;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const heandleChange = (e) => {
-    console.log(e.target.value);
-    const { name, value } = e.target;
-    setLogin({ ...login, [name]: value });
-  };
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const loginValidation = Yup.object({
     email: Yup.string()
@@ -29,9 +27,30 @@ const LoginForm = () => {
       .required(t('login.emailRequire')),
     password: Yup.string()
       .required(t('login.passwordRequire'))
-      .min(6, t('login.passwordMin'))
+      .min(8, t('login.passwordMin'))
       .max(32, t('login.passwordMax')),
   });
+
+  const loginUser = ({ email, password }) => {
+    setLoading(true);
+    setError('');
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, {
+        email,
+        password,
+      })
+      .then(({ data }) => {
+        setLoading(false);
+        setError('');
+        dispatch(login(data));
+        Cookies.set('user', JSON.stringify(data));
+        navigate('/');
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error.response.data.message || error.message);
+      });
+  };
   return (
     <div className="login-wrap">
       <div className="login-text">
@@ -42,12 +61,12 @@ const LoginForm = () => {
         <div className="login-form-wrap">
           <Formik
             initialValues={{
-              email,
-              password,
+              email: '',
+              password: '',
             }}
             validationSchema={loginValidation}
-            onSubmit={() => {
-              console.log(login);
+            onSubmit={(data) => {
+              loginUser(data);
             }}
           >
             {(formik) => (
@@ -56,14 +75,12 @@ const LoginForm = () => {
                   type="text"
                   name="email"
                   placeholder={t('login.emailPlaceholder')}
-                  onChange={heandleChange}
                 />
                 <LoginInut
                   type="password"
                   name="password"
                   bottom
                   placeholder={t('login.passwordPlaceholder')}
-                  onChange={heandleChange}
                 />
                 <button className="btn btn-blue" type="submit">
                   {t('login.loginButton')}
@@ -74,8 +91,14 @@ const LoginForm = () => {
           <Link className="forgot-password" to="/forgot">
             {t('login.forgotLabel')}
           </Link>
+          <div className="error-text text-center">{error}</div>
+          <DotLoader color="#1876f2" size={30} loading={loading} />
           <hr className="sign-splitter" />
-          <button className="btn btn-green open-signup">
+          <button
+            type="button"
+            className="btn btn-green open-signup"
+            onClick={() => setRegister(true)}
+          >
             {t('login.createAccount')}
           </button>
         </div>

@@ -10,7 +10,7 @@
     "emailRequire": "Email address is require.",
     "emailinvalid": "Please enter a valid email address.",
     "passwordRequire": "Please enter password.",
-    "passwordMin": "Password shoul be at least 6 characters in length.",
+    "passwordMin": "Password shoul be at least 8 characters in length.",
     "passwordMax": "Password should not exceed 32 characters in length."
   },
   "signup": {

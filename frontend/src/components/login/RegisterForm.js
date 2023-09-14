@@ -1,54 +1,24 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/slices/userSlice';
+import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
 import { Form, Formik } from 'formik';
 import { useTranslation, Trans } from 'react-i18next';
 import * as Yup from 'yup';
 import DotLoader from 'react-spinners/DotLoader';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import RegisterInut from '../form/register';
 import DateSelector from '../form/register/DateSelector';
 import GenderSelector from '../form/register/GenderSelector';
 
 import './registerForm.scss';
 
-const userInfo = {
-  first_name: '',
-  last_name: '',
-  email: '',
-  password: '',
-  bYear: new Date().getFullYear(),
-  bMonth: new Date().getMonth() + 1,
-  bDay: new Date().getDate(),
-  gender: '',
-};
-
-const RegisterForm = () => {
+const RegisterForm = ({ setRegister }) => {
   const { t } = useTranslation();
-  const [user, setUser] = useState(userInfo);
-
-  const {
-    first_name,
-    last_name,
-    email,
-    password,
-    bYear,
-    bMonth,
-    bDay,
-    gender,
-  } = user;
-
-  const fullYear = new Date().getFullYear();
-  const bYears = Array.from(new Array(100), (val, index) => fullYear - index);
-  const bMonths = Array.from(new Array(12), (val, index) => 1 + index);
-  const getDays = () => {
-    return new Date(bYear, bMonth, 0).getDate();
-  };
-  const days = Array.from(new Array(getDays()), (val, index) => index + 1);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
-  };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const validation = Yup.object({
     first_name: Yup.string()
@@ -66,7 +36,7 @@ const RegisterForm = () => {
       .email(t('signup.emailinvalid')),
     password: Yup.string()
       .required(t('signup.passwordRequire'))
-      .min(6, t('signup.passwordMin'))
+      .min(8, t('signup.passwordMin'))
       .max(32, t('signup.passwordMax')),
   });
 
@@ -76,7 +46,16 @@ const RegisterForm = () => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const registerSubmit = () => {
+  const registerSubmit = ({
+    first_name,
+    last_name,
+    email,
+    password,
+    bYear,
+    bMonth,
+    bDay,
+    gender,
+  }) => {
     setLoading(true);
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
@@ -90,15 +69,20 @@ const RegisterForm = () => {
         gender,
       })
       .then(function ({ data }) {
-        console.log(data);
-        setError('');
-        setSuccess(data.message);
         setLoading(false);
+        setError('');
+        const { message, ...rest } = data;
+        setSuccess(message);
+        setTimeout(() => {
+          dispatch(login(rest));
+          Cookies.set('user', JSON.stringify(rest));
+          navigate('/');
+        }, 2000);
       })
       .catch(function (error) {
         setLoading(false);
-        setError(t(error.response.data.message));
-        setSuccess(t(''));
+        setSuccess('');
+        setError(error.response.data.message || error.message);
       });
   };
 
@@ -106,23 +90,24 @@ const RegisterForm = () => {
     <div className="blur">
       <div className="register">
         <div className="register-header">
-          <i className="exit_icon"></i>
+          <i className="exit_icon" onClick={() => setRegister(false)}></i>
           <h3>{t('signup.header')}</h3>
           <span>{t('signup.subheader')}</span>
         </div>
         <Formik
           initialValues={{
-            first_name,
-            last_name,
-            email,
-            password,
-            bYear,
-            bMonth,
-            bDay,
-            gender,
+            first_name: '',
+            last_name: '',
+            email: '',
+            password: '',
+            bYear: new Date().getFullYear(),
+            bMonth: new Date().getMonth() + 1,
+            bDay: new Date().getDate(),
+            gender: '',
           }}
           validationSchema={validation}
-          onSubmit={() => {
+          onSubmit={(data) => {
+            const { bYear, bMonth, bDay, gender } = data;
             const currentDate = new Date();
             const selectedDate = new Date(bYear, bMonth - 1, bDay);
             const minDate = new Date(1970 + 18, 0, 1);
@@ -133,24 +118,24 @@ const RegisterForm = () => {
             } else {
               setDateError('');
               setGenderError('');
-              registerSubmit();
+              setError('');
+              setSuccess('');
+              registerSubmit(data);
             }
           }}
         >
-          {(formik) => (
+          {({ values, handleChange }) => (
             <Form className="register-form">
               <div className="register-row">
                 <RegisterInut
                   type="text"
                   placeholder={t('signup.firstname')}
                   name="first_name"
-                  onChange={handleChange}
                 />
                 <RegisterInut
                   type="text"
                   placeholder={t('signup.lastname')}
                   name="last_name"
-                  onChange={handleChange}
                 />
               </div>
               <div className="register-row">
@@ -158,7 +143,6 @@ const RegisterForm = () => {
                   type="text"
                   placeholder={t('signup.email')}
                   name="email"
-                  onChange={handleChange}
                 />
               </div>
               <div className="register-row">
@@ -166,7 +150,6 @@ const RegisterForm = () => {
                   type="password"
                   placeholder={t('signup.password')}
                   name="password"
-                  onChange={handleChange}
                 />
               </div>
               <div className="register-col">
@@ -174,12 +157,7 @@ const RegisterForm = () => {
                   {t('signup.birthLabel')} <i className="info_icon"></i>
                 </div>
                 <DateSelector
-                  bDay={bDay}
-                  bMonth={bMonth}
-                  bYear={bYear}
-                  days={days}
-                  bMonths={bMonths}
-                  bYears={bYears}
+                  values={values}
                   handleChange={handleChange}
                   dateError={dateError}
                 />
@@ -189,8 +167,8 @@ const RegisterForm = () => {
                   {t('signup.gender')} <i className="info_icon"></i>
                 </div>
                 <GenderSelector
-                  handleChange={handleChange}
                   genderError={genderError}
+                  handleChange={handleChange}
                 />
               </div>
               <div className="register-info">
@@ -216,8 +194,10 @@ const RegisterForm = () => {
                 </button>
               </div>
 
-              <div className="error-text">{error}</div>
-              <div className="success-text">{success}</div>
+              {error && <div className="error-text text-center">{error}</div>}
+              {success && (
+                <div className="success-text text-center">{success}</div>
+              )}
               <DotLoader color="#1876f2" size={30} loading={loading} />
             </Form>
           )}
