@@ -45,5 +45,8 @@
     "other": "Other",
     "textContactInfo": "<0>People who use our service may have uploaded your contact information to Facebook. <1>Learn more.</1></0>",
     "terms": "<0>By clicking Sign Up, you agree to our <2>Terms</2>, <5>Privacy Policy</5> and <8>Cookies Policy</8>. You may receive SMS notifications from us and can opt out at any time.</0>"
+  },
+  "header": {
+    "search": "Search Facebook"
   }
 }
