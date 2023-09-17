@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import SearchMenu from './SearchMenu';
 import {
   ArrowDown,
   Friends,
@@ -18,9 +21,10 @@ import {
 import './style.scss';
 
 const Header = () => {
+  const icon_color = '#65676b';
   const { t } = useTranslation();
   const user = useSelector((state) => state.user);
-  const icon_color = '#65676b';
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <header className="header">
@@ -30,7 +34,11 @@ const Header = () => {
             <Logo />
           </div>
         </Link>
-        <label className="search serach-icon" htmlFor="search">
+        <label
+          className="search serach-icon"
+          htmlFor="search"
+          onClick={() => setShowSearch(true)}
+        >
           <Search color={icon_color} />
           <input
             type="text"
@@ -40,6 +48,9 @@ const Header = () => {
           />
         </label>
       </div>
+      {showSearch && (
+        <SearchMenu color={icon_color} setShowSearch={setShowSearch} />
+      )}
       <div className="header-middle">
         <Link to="/" color={icon_color} className="header-middle-icon active">
           <HomeActive />
