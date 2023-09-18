@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import useClickOutside from '../../helpers/ClickOutside';
+import useClickOutside from '../../../helpers/ClickOutside';
 
-import { Return, Search } from '../../svg';
+import { Return, Search } from '../../../svg';
 import './searchMenu.scss';
 
 const SearchMenu = ({ color, setShowSearch }) => {

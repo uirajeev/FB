@@ -59,16 +59,16 @@
     &-icon {
       position: relative;
       display: flex;
+      flex-grow: 1;
       align-items: center;
       justify-content: center;
-      width: 15%;
       height: 50px;
       border-radius: 10px;
       cursor: pointer;
       &-info {
         position: absolute;
         top: 3px;
-        right: 10%;
+        right: calc(50% - 32px);
         background: #e41e3f;
         border-radius: 50px;
         padding: 1px 5px;
@@ -128,7 +128,7 @@
         right: -5px;
         background: #e41e3f;
         border-radius: 50px;
-        padding: 1px 6px;
+        padding: 1px 5px;
         font-size: 13px;
         color: #fff;
       }

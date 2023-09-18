@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useClickOutside from '../../helpers/ClickOutside';
 
-import SearchMenu from './SearchMenu';
+import AllMenu from './allMenu/AllMenu';
+import SearchMenu from './search/SearchMenu';
 import {
   ArrowDown,
   Friends,
@@ -24,7 +26,13 @@ const Header = () => {
   const icon_color = '#65676b';
   const { t } = useTranslation();
   const user = useSelector((state) => state.user);
+  const allMenu = useRef(null);
   const [showSearch, setShowSearch] = useState(false);
+  const [showAllMenu, setShowAllMenu] = useState(false);
+
+  useClickOutside(allMenu, () => {
+    setShowAllMenu(false);
+  });
 
   return (
     <header className="header">
@@ -74,8 +82,13 @@ const Header = () => {
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>
-        <div className="header-right-icon hover1">
+        <div
+          className="header-right-icon hover1"
+          ref={allMenu}
+          onClick={() => setShowAllMenu((prev) => !prev)}
+        >
           <Menu />
+          {showAllMenu && <AllMenu />}
         </div>
         <div className="header-right-icon hover1">
           <Messenger />

@@ -49,6 +49,166 @@
   "header": {
     "search": "Search Facebook",
     "recent": "Recent sratch",
-    "edit": "Edit"
+    "edit": "Edit",
+    "allMenu": [
+      {
+        "groupName": "Socal",
+        "items": [
+          {
+            "name": "Campus",
+            "description": "A unique, exclusive space for college students on Facebook."
+          },
+          {
+            "name": "Events",
+            "description": "Organize or find events and other things to do online and nearby."
+          },
+          {
+            "name": "Find Friends",
+            "description": "Search for friends or people you may know."
+          },
+          {
+            "name": "Groups",
+            "description": "Connect with people who share your interests."
+          },
+          {
+            "name": "News Feed",
+            "description": "See relevant posts from people and Pages you follow."
+          },
+          {
+            "name": "Pages",
+            "description": "Discover and connect with businesses on Facebook."
+          }
+        ]
+      },
+      {
+        "groupName": "Entertainment",
+        "items": [
+          {
+            "name": "Gaming Video",
+            "description": "Watch and connect with your favorite games and streamers."
+          },
+          {
+            "name": "Play Games",
+            "description": "Play your favorite games."
+          },
+          {
+            "name": "Video",
+            "description": "A video destination personalized to your interests and connections."
+          }
+        ]
+      },
+      {
+        "groupName": "Shopping",
+        "items": [
+          {
+            "name": "Facebook Pay",
+            "description": "A seamless, secure way to pay on the apps you already use."
+          },
+          {
+            "name": "Marketplace",
+            "description": "Buy and sell in your community."
+          }
+        ]
+      },
+      {
+        "groupName": "Personal",
+        "items": [
+          {
+            "name": "Recent Ad Activity",
+            "description": "See all the ads you interacted with on Facebook."
+          },
+          {
+            "name": "Memories",
+            "description": "Browse your old photos, videos and posts on Facebook."
+          },
+          {
+            "name": "Saved",
+            "description": "Find posts, photos and videos that you saved for later."
+          },
+
+          {
+            "name": "Weather",
+            "description": "Check your local forecast and sign up for daily weather notifications."
+          }
+        ]
+      },
+      {
+        "groupName": "Professional",
+        "items": [
+          {
+            "name": "Ads",
+            "description": "Create, manage and track the performance of your ads."
+          },
+          {
+            "name": "Jobs",
+            "description": "Find a job that's right for you."
+          }
+        ]
+      },
+      {
+        "groupName": "Community Resources",
+        "items": [
+          {
+            "name": "Climate science center",
+            "description": "Learn about climate change and its effects."
+          },
+          {
+            "name": "COVID-19 Information Center",
+            "description": "See the latest prevention tips, community resources and updates from health organizations."
+          },
+          {
+            "name": "Community Help",
+            "description": "Get involved in your community by creating a drive, requesting or offering help or volunteering."
+          },
+          {
+            "name": "Fundraisers",
+            "description": "Donate and raise money for nonprofits and personal causes."
+          }
+        ]
+      },
+      {
+        "groupName": "More from Meta",
+        "items": [
+          {
+            "name": "Messenger",
+            "description": "Chat instantly with your friends and connections."
+          },
+          {
+            "name": "Messenger Kids",
+            "description": "Let kids message with close friends and family."
+          }
+        ]
+      }
+    ],
+    "create": [
+      {
+        "name": "Post"
+      },
+      {
+        "name": "Story"
+      },
+      {
+        "name": "Room"
+      },
+      {
+        "name": "Page"
+      },
+
+      {
+        "name": "Ad"
+      },
+      {
+        "name": "Group"
+      },
+      {
+        "name": "Event"
+      },
+      {
+        "name": "Marketplace Listing"
+      },
+      {
+        "name": "Job"
+      }
+    ]
   }
 }
