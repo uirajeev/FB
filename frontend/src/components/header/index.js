@@ -21,6 +21,7 @@ import {
 } from '../../svg';
 
 import './style.scss';
+import UserMenu from '../header/userMenu';
 
 const Header = () => {
   const icon_color = '#65676b';
@@ -99,6 +100,7 @@ const Header = () => {
         </div>
         <div className="header-right-icon hover1">
           <ArrowDown />
+          <UserMenu user={user} />
         </div>
       </div>
     </header>

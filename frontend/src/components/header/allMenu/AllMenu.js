@@ -8,7 +8,7 @@ const AllMenu = () => {
 
   return (
     <div className="all-menu">
-      <div className="all-menu-header">Menu</div>
+      <div className="all-menu-header">{t('header.menu')}</div>
       <div className="all-menu-wrap scrollbar">
         <div className="all-menu-left">
           <div className="all-menu-search">

@@ -94,6 +94,10 @@ a {
   background: var(--bg-third);
 }
 
+.hover3:hover {
+  background: #d4d6da3a;
+}
+
 .active {
   border-bottom: 3px solid var(--blue-color);
   border-radius: 0 !important;
@@ -116,3 +120,34 @@ a {
   border-radius: 5px;
 }
 /*----Scrollbar----*/
+
+.splitter {
+  width: 100%;
+  border: none;
+  height: 1px;
+  color: var(--bg-third);
+  background-color: var(--bg-third);
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.small-circle {
+  position: relative;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 11px;
+  background: var(--bg-third);
+  cursor: pointer;
+}

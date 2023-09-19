@@ -50,6 +50,7 @@
     "search": "Search Facebook",
     "recent": "Recent sratch",
     "edit": "Edit",
+    "menu": "Menu",
     "allMenu": [
       {
         "groupName": "Socal",
@@ -208,6 +209,17 @@
       },
       {
         "name": "Job"
+      }
+    ],
+    "userItem": [
+      {
+        "name": "Settings & privacy"
+      },
+      {
+        "name": "Help & support"
+      },
+      {
+        "name": "Display & Accessibility"
       }
     ]
   }
