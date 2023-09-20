@@ -1,25 +1,34 @@
+import { useTransition } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import './settingsAndHelp.scss';
-import { useTransition } from 'react';
+import { settings } from '../../../data/userMenu';
 
-const SettingsAndHelp = () => {
+import './settingsAndHelp.scss';
+
+const SettingsAndHelp = ({ setVisible }) => {
   const { t } = useTranslation();
 
   return (
     <div className="abs-wrap">
       <div className="abs-wrap-header">
-        <div className="circle">
+        <div
+          className="circle hover1"
+          onClick={() => {
+            setVisible(0);
+          }}
+        >
           <i className="arrow_back_icon"></i>
         </div>
         {t(`header.userItem.0.name`)}
       </div>
-      <div className="menu-item hover3">
-        <div className="small-circle">
-          <i className="settings_filled_icon"></i>
+      {settings.map(({ icon }, index) => (
+        <div className="menu-item hover3" key={icon}>
+          <div className="small-circle">
+            <i className={icon}></i>
+          </div>
+          <span>{t(`header.settings.${index}.name`)}</span>
         </div>
-        <span>Settings</span>
-      </div>
+      ))}
     </div>
   );
 };

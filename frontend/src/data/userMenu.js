@@ -9,3 +9,24 @@ export const userMenuItem = [
     icon: 'dark_filled_icon',
   },
 ];
+
+export const settings = [
+  {
+    icon: 'settings_filled_icon',
+  },
+  {
+    icon: 'privacy_checkup_icon',
+  },
+  {
+    icon: 'privacy_shortcuts_icon',
+  },
+  {
+    icon: 'activity_log_icon',
+  },
+  {
+    icon: 'news_icon',
+  },
+  {
+    icon: 'language_icon',
+  },
+];

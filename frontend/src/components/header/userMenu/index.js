@@ -8,7 +8,7 @@ import './style.scss';
 
 const UserMenu = ({ user }) => {
   const { t } = useTranslation();
-  const [visible, setVisible] = useState(1);
+  const [visible, setVisible] = useState(0);
   return (
     <div className="menu">
       {visible === 0 && (
@@ -19,7 +19,7 @@ const UserMenu = ({ user }) => {
               <span>
                 {user?.first_name} {user?.last_name}
               </span>
-              <span>See Your profile</span>
+              <span>{t('header.yourProfile')}</span>
             </div>
           </Link>
           <hr className="splitter" />
@@ -28,13 +28,19 @@ const UserMenu = ({ user }) => {
               <i className="report_filled_icon"></i>
             </div>
             <div className="menu-main-col">
-              <div className="menu-main-feed">Give feedback</div>
-              <div className="menu-main-help">Help us improve facebook</div>
+              <div className="menu-main-feed">{t('header.feedback')}</div>
+              <div className="menu-main-help">{t('header.helpUs')}</div>
             </div>
           </div>
           <hr className="splitter" />
           {userMenuItem.map((item, index) => (
-            <div className="menu-item hover3" key={item.icon}>
+            <div
+              className="menu-item hover3"
+              key={item.icon}
+              onClick={() => {
+                setVisible(1);
+              }}
+            >
               <div className="small-circle">
                 <i className={item.icon}></i>
               </div>
@@ -48,12 +54,12 @@ const UserMenu = ({ user }) => {
             <div className="small-circle">
               <i className="logout_filled_icon"></i>
             </div>
-            <span>Logout</span>
+            <span>{t('header.logout')}</span>
           </div>
         </div>
       )}
 
-      {visible === 1 && <SettingsAndHelp />}
+      {visible === 1 && <SettingsAndHelp setVisible={setVisible} />}
     </div>
   );
 };

@@ -51,6 +51,10 @@
     "recent": "Recent sratch",
     "edit": "Edit",
     "menu": "Menu",
+    "yourProfile": "See Your profile",
+    "feedback": "Give feedback",
+    "helpUs": "Help us improve facebook",
+    "logout": "Logout",
     "allMenu": [
       {
         "groupName": "Socal",
@@ -220,6 +224,26 @@
       },
       {
         "name": "Display & Accessibility"
+      }
+    ],
+    "settings": [
+      {
+        "name": "Settings"
+      },
+      {
+        "name": "Privacy Checkup"
+      },
+      {
+        "name": "Privacy Shortcuts"
+      },
+      {
+        "name": "Activity log"
+      },
+      {
+        "name": "News Feed Prefrences"
+      },
+      {
+        "name": "Language"
       }
     ]
   }
