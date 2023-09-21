@@ -35,9 +35,11 @@ const AllMenu = () => {
           <div className="all-menu-right-header">Create</div>
           {create.map(({ icon }, k) => (
             <div className="all-menu-right-item hover1" key={icon}>
-              <span className="all-menu-right-circle">
-                <i className={icon}></i>
-              </span>
+              <div>
+                <span className="all-menu-right-circle">
+                  <i className={icon}></i>
+                </span>
+              </div>
               {t(`header.create.${k}.name`)}
             </div>
           ))}

@@ -6,7 +6,7 @@
   height: fit-content;
   border-radius: 10px;
   background: var(--bg-primary);
-  box-shadow: 2px 2px 2px var(--shadow-1);
+  box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
   user-select: none;
 
   &-header {
@@ -26,6 +26,13 @@
     padding: 10px;
     cursor: pointer;
     border-radius: 10px;
+
+    .sub-text {
+      font-size: 12px;
+      max-width: 240px;
+      font-weight: 400;
+      color: var(--color-secondary);
+    }
 
     input {
       width: 20px;

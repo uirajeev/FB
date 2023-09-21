@@ -1,4 +1,3 @@
-
 .base_icon {
   background-repeat: no-repeat;
   background-size: auto;
@@ -231,35 +230,35 @@
 
 .pin_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons1.png");
+  background-image: url('../../../public/icons/icons1.png');
   background-position: 0px -378px;
   width: 20px;
   height: 20px;
 }
 .save_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons1.png");
+  background-image: url('../../../public/icons/icons1.png');
   background-position: 0px -63px;
   width: 20px;
   height: 20px;
 }
 .embed_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons1.png");
+  background-image: url('../../../public/icons/icons1.png');
   background-position: 0px -126px;
   width: 20px;
   height: 20px;
 }
 .copy_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons2.png");
+  background-image: url('../../../public/icons/icons2.png');
   background-position: 0px -568px;
   width: 20px;
   height: 20px;
 }
 .edit_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons2.png");
+  background-image: url('../../../public/icons/icons2.png');
   background-position: 0px -610px;
   width: 20px;
   height: 20px;
@@ -267,14 +266,14 @@
 }
 .turnOffNotifications_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons3.png");
+  background-image: url('../../../public/icons/icons3.png');
   background-position: 0px -138px;
   width: 20px;
   height: 20px;
 }
 .delete_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons1.png");
+  background-image: url('../../../public/icons/icons1.png');
   background-position: 0px -399px;
   width: 20px;
   height: 20px;
@@ -282,35 +281,35 @@
 
 .date_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons4.png");
+  background-image: url('../../../public/icons/icons4.png');
   background-position: 0px -67px;
   width: 20px;
   height: 20px;
 }
 .refresh_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/refresh.png");
+  background-image: url('../../../public/icons/refresh.png');
   background-position: 0px 0px;
   width: 20px;
   height: 20px;
 }
 .archive_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons1.png");
+  background-image: url('../../../public/icons/icons1.png');
   background-position: 0px -84px;
   width: 20px;
   height: 20px;
 }
 .trash_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons2.png");
+  background-image: url('../../../public/icons/icons2.png');
   background-position: 0px -799px;
   width: 20px;
   height: 20px;
 }
 .like_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0 -243px;
   width: 18px;
   height: 18px;
@@ -318,7 +317,7 @@
 }
 .comment_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0 -205px;
   width: 18px;
   height: 18px;
@@ -326,7 +325,7 @@
 }
 .share_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0 -262px;
   width: 18px;
   height: 18px;
@@ -334,7 +333,7 @@
 }
 .emoji_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0px -434px;
   width: 16px;
   height: 16px;
@@ -342,7 +341,7 @@
 }
 .camera_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0px -366px;
   width: 16px;
   height: 16px;
@@ -350,7 +349,7 @@
 }
 .gif_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0px -451px;
   width: 16px;
   height: 16px;
@@ -358,7 +357,7 @@
 }
 .sticker_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons5.png");
+  background-image: url('../../../public/icons/icons5.png');
   background-position: 0px -468px;
   width: 16px;
   height: 16px;
@@ -366,7 +365,7 @@
 }
 .exit_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons6.png");
+  background-image: url('../../../public/icons/icons6.png');
   background-position: -126px -71px;
   width: 20px;
   height: 20px;
@@ -374,14 +373,14 @@
 }
 .edit_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons18.png");
+  background-image: url('../../../public/icons/icons18.png');
   background-position: -34px -109px;
   width: 16px;
   height: 16px;
 }
 .arrowDown_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons6.png");
+  background-image: url('../../../public/icons/icons6.png');
   background-position: -117px -130px;
   width: 12px;
   height: 12px;
@@ -390,7 +389,7 @@
   height: 24px;
   width: 24px;
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons7.png");
+  background-image: url('../../../public/icons/icons7.png');
   background-position: 0px -207px;
   filter: invert(40%);
   cursor: pointer;
@@ -399,33 +398,33 @@
   height: 24px;
   width: 24px;
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons7.png");
+  background-image: url('../../../public/icons/icons7.png');
   background-position: 0px -257px;
 }
 .maps_icon {
   height: 24px;
   width: 24px;
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons8.png");
+  background-image: url('../../../public/icons/icons8.png');
   background-position: 0px -225px;
 }
 .microphone_icon {
   height: 24px;
   width: 24px;
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons9.png");
+  background-image: url('../../../public/icons/icons9.png');
   background-position: 0px -100px;
 }
 .addPhoto_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons7.png");
+  background-image: url('../../../public/icons/icons7.png');
   background-position: -25px -292px;
   width: 20px;
   height: 20px;
 }
 .phone_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons7.png");
+  background-image: url('../../../public/icons/icons7.png');
   background-position: -25px -271px;
   width: 20px;
   height: 20px;
@@ -433,7 +432,7 @@
 }
 .camera_filled_icon {
   @extend .base_icon;
-  background-image: url("../../../public/icons/icons25.png");
+  background-image: url('../../../public/icons/icons25.png');
   background-position: 0px -444px;
   width: 20px;
   height: 20px;
@@ -590,4 +589,11 @@
   background-image: url(../../../public/icons/icons10.png);
   width: 21px;
   height: 21px;
+}
+.compact_icon {
+  @extend .base_icon;
+  background-image: url(../../../public/icons/icons38.png);
+  background-position: 0 -130px;
+  width: 20px;
+  height: 20px;
 }

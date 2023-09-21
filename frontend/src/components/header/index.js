@@ -28,11 +28,17 @@ const Header = () => {
   const { t } = useTranslation();
   const user = useSelector((state) => state.user);
   const allMenu = useRef(null);
+  const userMenu = useRef(null);
   const [showSearch, setShowSearch] = useState(false);
   const [showAllMenu, setShowAllMenu] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
 
   useClickOutside(allMenu, () => {
     setShowAllMenu(false);
+  });
+
+  useClickOutside(userMenu, () => {
+    setShowUserMenu(false);
   });
 
   return (
@@ -83,12 +89,10 @@ const Header = () => {
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>
-        <div
-          className="header-right-icon hover1"
-          ref={allMenu}
-          onClick={() => setShowAllMenu((prev) => !prev)}
-        >
-          <Menu />
+        <div className="header-right-icon hover1" ref={allMenu}>
+          <div onClick={() => setShowAllMenu((prev) => !prev)}>
+            <Menu />
+          </div>
           {showAllMenu && <AllMenu />}
         </div>
         <div className="header-right-icon hover1">
@@ -98,9 +102,11 @@ const Header = () => {
           <Notifications />
           <div className="header-right-icon-info">9+</div>
         </div>
-        <div className="header-right-icon hover1">
-          <ArrowDown />
-          <UserMenu user={user} />
+        <div className="header-right-icon hover1" ref={userMenu}>
+          <div onClick={() => setShowUserMenu((prev) => !prev)}>
+            <ArrowDown />
+          </div>
+          {showUserMenu && <UserMenu user={user} />}
         </div>
       </div>
     </header>

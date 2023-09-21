@@ -1,11 +1,10 @@
-import { useTransition } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { settings } from '../../../data/userMenu';
+import { settings, helpMenu } from '../../../data/userMenu';
 
 import './subMenu.scss';
 
-const SettingsAndHelp = ({ setVisible }) => {
+const HelpAndSupport = ({ setVisible }) => {
   const { t } = useTranslation();
 
   return (
@@ -19,18 +18,18 @@ const SettingsAndHelp = ({ setVisible }) => {
         >
           <i className="arrow_back_icon"></i>
         </div>
-        {t(`header.userItem.0.name`)}
+        {t(`header.userItem.1.name`)}
       </div>
-      {settings.map(({ icon }, index) => (
+      {helpMenu.map(({ icon }, index) => (
         <div className="menu-item hover3" key={icon}>
           <div className="small-circle">
             <i className={icon}></i>
           </div>
-          <span>{t(`header.settings.${index}.name`)}</span>
+          <span>{t(`header.helpMenu.${index}.name`)}</span>
         </div>
       ))}
     </div>
   );
 };
 
-export default SettingsAndHelp;
+export default HelpAndSupport;

@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { userMenuItem } from '../../../data/userMenu';
 import SettingsAndHelp from './SettingsAndHelp';
 import './style.scss';
+import HelpAndSupport from './HelpAndSupport';
+import DisplayAndAccessibility from './DisplayAndAccessibility';
 
 const UserMenu = ({ user }) => {
   const { t } = useTranslation();
@@ -28,8 +30,8 @@ const UserMenu = ({ user }) => {
               <i className="report_filled_icon"></i>
             </div>
             <div className="menu-main-col">
-              <div className="menu-main-feed">{t('header.feedback')}</div>
-              <div className="menu-main-help">{t('header.helpUs')}</div>
+              <div className="menu-main-text">{t('header.feedback')}</div>
+              <div className="menu-main-sub-text">{t('header.helpUs')}</div>
             </div>
           </div>
           <hr className="splitter" />
@@ -38,7 +40,7 @@ const UserMenu = ({ user }) => {
               className="menu-item hover3"
               key={item.icon}
               onClick={() => {
-                setVisible(1);
+                setVisible(index + 1);
               }}
             >
               <div className="small-circle">
@@ -60,6 +62,8 @@ const UserMenu = ({ user }) => {
       )}
 
       {visible === 1 && <SettingsAndHelp setVisible={setVisible} />}
+      {visible === 2 && <HelpAndSupport setVisible={setVisible} />}
+      {visible === 3 && <DisplayAndAccessibility setVisible={setVisible} />}
     </div>
   );
 };

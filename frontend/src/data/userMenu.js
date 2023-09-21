@@ -30,3 +30,15 @@ export const settings = [
     icon: 'language_icon',
   },
 ];
+
+export const helpMenu = [
+  {
+    icon: 'help_center_icon',
+  },
+  {
+    icon: 'email_icon',
+  },
+  {
+    icon: 'info_filled_icon',
+  },
+];

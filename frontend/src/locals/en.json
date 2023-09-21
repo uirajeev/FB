@@ -130,7 +130,6 @@
             "name": "Saved",
             "description": "Find posts, photos and videos that you saved for later."
           },
-
           {
             "name": "Weather",
             "description": "Check your local forecast and sign up for daily weather notifications."
@@ -241,10 +240,27 @@
       },
       {
         "name": "News Feed Prefrences"
+      }
+    ],
+
+    "helpMenu": [
+      {
+        "name": "Help Center"
       },
       {
-        "name": "Language"
+        "name": "Suport Inbox"
+      },
+      {
+        "name": "Report a Problem"
       }
-    ]
-  }
+    ],
+    "dark": "Dark Mode",
+    "darkDec": "Adjust the appearance of Facebook to reduce glare and give your eyes a break.",
+    "automatic": "Automatic",
+    "automaticDec": "We'll automatically adjust the display based on your device’s system settings.",
+    "compact": "Compact Mode",
+    "compactDec": "Make your font size smaller so more content can fit on the screen."
+  },
+  "on": "On",
+  "off": "Off"
 }

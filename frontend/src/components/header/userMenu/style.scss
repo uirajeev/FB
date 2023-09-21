@@ -6,15 +6,17 @@
   width: 360px;
   border-radius: 10px;
   background: var(--bg-primary);
-  box-shadow: 2px 2px 2px var(--shadow-1);
+  box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
   user-select: none;
 
   &-header {
     display: flex;
     align-items: center;
-    padding: 5px;
     gap: 10px;
     border-radius: 10px;
+    box-shadow: 0 12px 28px 0 var(--shadow-2), 0 2px 4px 0 var(--shadow-1);
+    margin-bottom: 10px;
+    padding: 10px;
 
     img {
       width: 60px;
@@ -53,12 +55,13 @@
       flex-direction: column;
       justify-content: center;
     }
-    &-feed {
-      font-size: 14px;
+    &-text {
+      font-size: 16px;
+      font-weight: 600;
     }
 
-    &-help {
-      font-size: 12px;
+    &-sub-text {
+      font-size: 14px;
       color: var(--color-secondary);
     }
   }
