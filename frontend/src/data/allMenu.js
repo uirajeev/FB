@@ -59,7 +59,6 @@ export const menu = [
       {
         icon: 'saved',
       },
-      ,
       {
         icon: 'weather',
       },

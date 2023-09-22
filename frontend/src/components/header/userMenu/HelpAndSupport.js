@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { settings, helpMenu } from '../../../data/userMenu';
+import { helpMenu } from '../../../data/userMenu';
 
 import './subMenu.scss';
 

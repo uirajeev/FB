@@ -18,7 +18,7 @@
     .search {
       padding: 11px 29px 9px 6px !important;
       flex-grow: 1;
-      width: 234px;
+      width: 234px !important;
       margin-left: 3px;
 
       .circle {
@@ -31,6 +31,7 @@
       }
 
       input {
+        display: block !important;
         &::placeholder {
           transform: translateY(-2px) !important;
         }

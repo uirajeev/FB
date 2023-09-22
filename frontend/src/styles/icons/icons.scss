@@ -189,6 +189,21 @@
   width: 20px;
   height: 20px;
 }
+.character_keyboard_icon {
+  @extend .base_icon;
+  background-image: url(../../../public/icons/icons17.png);
+  background-position: 0px -550px;
+  width: 21px;
+  height: 21px;
+}
+
+.pointer_icon {
+  @extend .base_icon;
+  background-image: url(../../../public/icons/icons17.png);
+  background-position: 0px -194px;
+  width: 21px;
+  height: 21px;
+}
 .email_icon {
   @extend .base_icon;
   background-image: url(../../../public/icons/icons22.png);

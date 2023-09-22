@@ -89,7 +89,12 @@ const Header = () => {
           <img src={user?.picture} alt="" />
           <span>{user?.first_name}</span>
         </Link>
-        <div className="header-right-icon hover1" ref={allMenu}>
+        <div
+          className={`header-right-icon hover1 ${
+            showAllMenu && 'active-header'
+          }`}
+          ref={allMenu}
+        >
           <div onClick={() => setShowAllMenu((prev) => !prev)}>
             <Menu />
           </div>
@@ -102,7 +107,12 @@ const Header = () => {
           <Notifications />
           <div className="header-right-icon-info">9+</div>
         </div>
-        <div className="header-right-icon hover1" ref={userMenu}>
+        <div
+          className={`header-right-icon hover1 ${
+            showUserMenu && 'active-header'
+          }`}
+          ref={userMenu}
+        >
           <div onClick={() => setShowUserMenu((prev) => !prev)}>
             <ArrowDown />
           </div>

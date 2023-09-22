@@ -240,6 +240,9 @@
       },
       {
         "name": "News Feed Prefrences"
+      },
+      {
+        "name": "Language"
       }
     ],
 
@@ -257,9 +260,19 @@
     "dark": "Dark Mode",
     "darkDec": "Adjust the appearance of Facebook to reduce glare and give your eyes a break.",
     "automatic": "Automatic",
-    "automaticDec": "We'll automatically adjust the display based on your device’s system settings.",
+    "automaticDec": "We'll automatically adjust the display based on your device's system settings.",
     "compact": "Compact Mode",
-    "compactDec": "Make your font size smaller so more content can fit on the screen."
+    "compactDec": "Make your font size smaller so more content can fit on the screen.",
+    "keyboard": "Keyboard",
+    "keyboardShortcuts": "See all keyboard shortcuts",
+    "singleCharacter": "Use single-character keyboard shortcuts",
+    "singleCharacterDec": "Use single-character shortcuts to perform common actions.",
+    "previews": "Show previews of links",
+    "previewsDec": "Without opening a page to a person, event, or group, show info and actions in a preview window.",
+    "previewHovering": "Show preview when hovering pointer over link",
+    "previewClick": "Show preview after clicking",
+    "previewClickDec": "Best when using a screen reader or magnifier. Links change to buttons that open preview windows.",
+    "dontShow": "Don't show preview"
   },
   "on": "On",
   "off": "Off"

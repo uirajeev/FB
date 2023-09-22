@@ -7,6 +7,7 @@ import SettingsAndHelp from './SettingsAndHelp';
 import './style.scss';
 import HelpAndSupport from './HelpAndSupport';
 import DisplayAndAccessibility from './DisplayAndAccessibility';
+import Keyboard from './Keyboard';
 
 const UserMenu = ({ user }) => {
   const { t } = useTranslation();
@@ -64,6 +65,7 @@ const UserMenu = ({ user }) => {
       {visible === 1 && <SettingsAndHelp setVisible={setVisible} />}
       {visible === 2 && <HelpAndSupport setVisible={setVisible} />}
       {visible === 3 && <DisplayAndAccessibility setVisible={setVisible} />}
+      {visible === 31 && <Keyboard setVisible={setVisible} />}
     </div>
   );
 };

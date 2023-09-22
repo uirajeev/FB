@@ -151,3 +151,11 @@ a {
   background: var(--bg-third);
   cursor: pointer;
 }
+
+.active-header {
+  background: var(--light-blue-color) !important;
+
+  svg {
+    fill: var(--blue-color);
+  }
+}
