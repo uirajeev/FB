@@ -1,13 +1,15 @@
-import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import Header from '../../components/header';
+import HomeLeft from './left';
 
 const Home = () => {
-  const el = useRef(null);
+  const { user } = useSelector((state) => ({ ...state }));
 
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <HomeLeft user={user} />
+    </>
   );
 };
 
