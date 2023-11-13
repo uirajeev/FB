@@ -3,6 +3,24 @@
   margin: 0;
   box-sizing: border-box;
 }
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--blue-color, --divider);
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: var(--divider);
+  border-radius: 5px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blue-color);
+  border-radius: 5px;
+  border: 0;
+}
 body {
   font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
 }
@@ -91,7 +109,7 @@ a {
 }
 
 .hover2:hover {
-  background: var(--bg-third);
+  background: var(--bg-third) !important;
 }
 
 .hover3:hover {
@@ -112,21 +130,21 @@ a {
 
 /*----Scrollbar----*/
 
-.scrollbar::-webkit-scrollbar {
-  width: 8px;
-}
-.scrollbar::-webkit-scrollbar-thumb {
-  background: #aeaeafa1;
-  border-radius: 5px;
-}
+// .scrollbar::-webkit-scrollbar {
+//   width: 8px;
+// }
+// .scrollbar::-webkit-scrollbar-thumb {
+//   background: #aeaeafa1;
+//   border-radius: 5px;
+// }
 /*----Scrollbar----*/
 
 .splitter {
   width: 100%;
   border: none;
   height: 1px;
-  color: var(--bg-third);
-  background-color: var(--bg-third);
+  color: var(--divider);
+  background-color: var(--divider);
 }
 
 .circle {
@@ -158,4 +176,8 @@ a {
   svg {
     fill: var(--blue-color);
   }
+}
+
+.rotate180 {
+  transform: rotate(180deg);
 }

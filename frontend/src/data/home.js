@@ -1,112 +1,153 @@
 export const left = [
   {
-    text: "Find friends",
-    img: "friends",
+    name: 'find-friends',
+    img: 'friends',
   },
   {
-    text: "Memories",
-    img: "memories",
+    name: 'memories',
+    img: 'memories',
   },
   {
-    text: "Groups",
-    img: "groups",
-    notification: "5 new",
+    name: 'groups',
+    img: 'groups',
+    notification: '5 new',
   },
   {
-    text: "Marketplace",
-    img: "marketplace",
+    name: 'marketplace',
+    img: 'marketplace',
   },
   {
-    text: "Watch",
-    img: "watch",
-    notification: "9 new videos",
+    name: 'watch',
+    img: 'watch',
+    notification: '9 new videos',
   },
   {
-    text: "Saved",
-    img: "saved",
+    name: 'saved',
+    img: 'saved',
   },
   {
-    text: "Pages",
-    img: "pages",
+    name: 'pages',
+    img: 'pages',
   },
   {
-    text: "Events",
-    img: "events",
+    name: 'events',
+    img: 'events',
   },
   {
-    text: "Ad Center",
-    img: "ad",
+    name: 'ad-center',
+    img: 'ad',
   },
   {
-    text: "Ads Manager",
-    img: "ads",
+    name: 'ads-manager',
+    img: 'ads',
   },
   {
-    text: "Campus",
-    img: "campus",
+    name: 'campus',
+    img: 'campus',
   },
   {
-    text: "Climate science center",
-    img: "climate",
+    name: 'climate-science-center',
+    img: 'climate',
   },
   {
-    text: "Community Help",
-    img: "community",
+    name: 'community-help',
+    img: 'community',
   },
   {
-    text: "COVID-19 Information Centrer",
-    img: "covid",
+    name: 'covid',
+    img: 'covid',
   },
   {
-    text: "Emotional health",
-    img: "emotional",
+    name: 'emotional-health',
+    img: 'emotional',
   },
   {
-    text: "Facebook Pay",
-    img: "pay",
+    name: 'facebook-pay',
+    img: 'pay',
   },
   {
-    text: "Favorites",
-    img: "fav",
+    name: 'favorites',
+    img: 'fav',
   },
   {
-    text: "Fundraisers",
-    img: "fund",
+    name: 'fundraisers',
+    img: 'fund',
   },
   {
-    text: "Gaming Video",
-    img: "gaming",
+    name: 'gaming-video',
+    img: 'gaming',
   },
   {
-    text: "Jobs",
-    img: "jobs",
+    name: 'jobs',
+    img: 'jobs',
   },
   {
-    text: "Live videos",
-    img: "live",
+    name: 'live-videos',
+    img: 'live',
   },
   {
-    text: "Messenger",
-    img: "messenger",
+    name: 'messenger',
+    img: 'messenger',
   },
   {
-    text: "Messenger Kids",
-    img: "messkids",
+    name: 'messenger-kids',
+    img: 'messkids',
   },
   {
-    text: "Most recent",
-    img: "recent",
+    name: 'most-recent',
+    img: 'recent',
   },
   {
-    text: "Play Games",
-    img: "play",
+    name: 'play-games',
+    img: 'play',
   },
   {
-    text: "Recent ad activity",
-    img: "recentad",
+    name: 'recent-ad-activity',
+    img: 'recentad',
   },
   {
-    text: "Weather",
-    img: "weather",
+    name: 'weather',
+    img: 'weather',
+  },
+];
+
+export const shortcut = [
+  {
+    name: 'youtube',
+    url: '',
+    img: 'ytb.png',
+  },
+  {
+    name: 'instagram',
+    url: '',
+    img: 'insta.png',
+  },
+];
+
+export const stories = [
+  {
+    profile_picture: '../../stories/profile1.jpg',
+    profile_name: 'Elon Musk',
+    image: '../../stories/1.jpg',
+  },
+  {
+    profile_picture: '../../stories/profile2.jpg',
+    profile_name: 'South park',
+    image: '../../stories/2.png',
+  },
+  {
+    profile_picture: '../../stories/profile3.png',
+    profile_name: 'The Sopranos',
+    image: '../../stories/3.jpg',
+  },
+  {
+    profile_picture: '../../stories/profile4.jfif',
+    profile_name: 'Football World',
+    image: '../../stories/4.jpg',
+  },
+  {
+    profile_picture: '../../stories/profile5.png',
+    profile_name: 'The Witcher Wild Hunt',
+    image: '../../stories/5.jfif',
   },
 ];

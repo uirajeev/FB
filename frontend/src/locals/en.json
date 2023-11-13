@@ -274,6 +274,116 @@
     "previewClickDec": "Best when using a screen reader or magnifier. Links change to buttons that open preview windows.",
     "dontShow": "Don't show preview"
   },
+  "leftMenu": {
+    "seeMore": "See more",
+    "showLess": "Show less",
+    "edit": "Edit",
+    "yourShourcuts": "Your Shourcuts",
+    "menu": {
+      "find-friends": {
+        "text": "Find friends"
+      },
+      "memories": {
+        "text": "Memories"
+      },
+      "groups": {
+        "text": "Groups"
+      },
+      "marketplace": {
+        "text": "Marketplace"
+      },
+      "watch": {
+        "text": "Watch"
+      },
+      "saved": {
+        "text": "Saved"
+      },
+      "pages": {
+        "text": "Pages"
+      },
+      "events": {
+        "text": "Events"
+      },
+      "ad-center": {
+        "text": "Ad Center"
+      },
+      "ads-manager": {
+        "text": "Ads Manager"
+      },
+      "campus": {
+        "text": "Campus"
+      },
+      "climate-science-center": {
+        "text": "Climate science center"
+      },
+      "community-help": {
+        "text": "Community Help"
+      },
+      "covid": {
+        "text": "COVID-19 Information Centrer"
+      },
+      "emotional-health": {
+        "text": "Emotional health"
+      },
+      "facebook-pay": {
+        "text": "Facebook Pay"
+      },
+      "favorites": {
+        "text": "Favorites"
+      },
+      "fundraisers": {
+        "text": "Fundraisers"
+      },
+      "gaming-video": {
+        "text": "Gaming Video"
+      },
+      "jobs": {
+        "text": "Jobs"
+      },
+      "live-videos": {
+        "text": "Live videos"
+      },
+      "messenger": {
+        "text": "Messenger"
+      },
+      "messenger-kids": {
+        "text": "Messenger Kids"
+      },
+      "most-recent": {
+        "text": "Most recent"
+      },
+      "play-games": {
+        "text": "Play Games"
+      },
+      "recent-ad-activity": {
+        "text": "Recent ad activity"
+      },
+      "weather": {
+        "text": "Weather"
+      }
+    },
+    "shortcut": {
+      "youtube": {
+        "text": "My youtube channel"
+      },
+      "instagram": {
+        "text": "My instagram"
+      }
+    },
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "advertising": "Advertising",
+    "adChoices": "Ad Choices",
+    "cookies": "Cookies",
+    "more": "More",
+    "meta": "Meta"
+  },
   "on": "On",
-  "off": "Off"
+  "off": "Off",
+  "post": {
+    "inYourMing": "What's on your mind,",
+    "liveVideo": "Live video",
+    "photo": "Photo/Video",
+    "feeling": "Feeling/Activity"
+  }
 }

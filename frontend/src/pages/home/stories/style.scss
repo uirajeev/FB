@@ -1,0 +1,113 @@
+.stories {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 105px);
+  gap: 10px;
+  padding: 6px 0;
+  .story {
+    cursor: pointer;
+    position: relative;
+    height: 190px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px var(--shadow-1);
+
+    &-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.2s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &-profile-pic {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--blue-color);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-profile-name {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 10px;
+      width: 100px;
+      word-break: break-word;
+      color: #fff;
+      font-size: 14px;
+      padding-left: 10px;
+    }
+  }
+  .create-story {
+    &-card {
+      position: relative;
+      height: 190px;
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #fff;
+      cursor: pointer;
+      box-shadow: 0 1px 2px var(--shadow-1);
+
+      &-img {
+        position: absolute;
+        height: 57%;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(80%);
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      left: 50%;
+      top: 65%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-color);
+      cursor: pointer;
+      border: 4px solid #fff;
+    }
+
+    &-text {
+      color: #000;
+      position: absolute;
+      left: 20%;
+      top: 87%;
+      font-size: 12px;
+    }
+  }
+
+  .white-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    box-shadow: 1px 2px var(--shadow-1);
+    cursor: pointer;
+  }
+}
