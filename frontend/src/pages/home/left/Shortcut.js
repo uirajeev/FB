@@ -7,7 +7,7 @@ const Shortcut = ({ name, url, img }) => {
       className="left-home-shortcut-item"
     >
       <img src={`../../../images/${img}`} alt={name} />
-      {name}
+      <span>{name}</span>
     </a>
   );
 };

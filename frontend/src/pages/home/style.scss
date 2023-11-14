@@ -6,6 +6,189 @@
 
   &-middle {
     margin-top: 75px;
-    margin-left: 31.8vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1175px) {
+  .stories,
+  .cr-post {
+    width: 84%;
+  }
+  .home {
+    &-middle {
+      margin-left: 5%;
+    }
+  }
+  .right-home {
+    width: 18vw;
+  }
+}
+
+@media (max-width: 1030px) {
+  .left-home {
+    width: 70px;
+    &-link {
+      background: var(--bg-third);
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      span {
+        display: none;
+      }
+
+      &-col,
+      &-col-text {
+        display: none;
+      }
+    }
+
+    &-shortcut {
+      display: none;
+      &-item {
+        span {
+          display: none;
+        }
+      }
+    }
+    .splitter,
+    .fb-copyright {
+      display: none;
+    }
+  }
+  .home {
+    &-middle {
+      position: relative;
+      margin-left: 55px;
+    }
+  }
+  .right-home {
+    width: 20vw;
+  }
+
+  .stories,
+  .cr-post {
+    width: 100%;
+  }
+}
+
+@media (max-width: 980px) {
+  .stories {
+    width: 95%;
+  }
+  .cr-post {
+    width: 93%;
+  }
+
+  .home {
+    &-middle {
+      margin-left: 10%;
+    }
+  }
+  .right-home {
+    left: 78%;
+  }
+}
+
+@media (max-width: 885px) {
+  .stories {
+    width: 113%;
+  }
+  .cr-post {
+    width: 110%;
+  }
+
+  .home {
+    &-middle {
+      margin-left: 9%;
+    }
+  }
+  .right-home {
+    display: none;
+  }
+}
+
+@media (max-width: 805px) {
+  .stories {
+    grid-template-columns: repeat(6, 13vw);
+
+    .create-story {
+      &-card {
+        filter: brightness(96%);
+      }
+      &-text {
+        display: none;
+      }
+    }
+
+    .story-profile {
+      &-pic {
+        width: 7vw;
+        height: 7vw;
+      }
+      &-name {
+        display: none;
+      }
+    }
+
+    .white-circle {
+      right: 5px;
+    }
+  }
+  .cr-post {
+    width: 110%;
+  }
+
+  .home {
+    &-middle {
+      margin-left: 9%;
+    }
+  }
+  .right-home {
+    display: none;
+  }
+
+  .left-home::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .left-home {
+    display: none;
+  }
+
+  .home {
+    &-middle {
+      position: absolute;
+      margin-left: 0;
+    }
+  }
+
+  .stories,
+  .cr-post {
+    width: 100%;
+    &-icon {
+      font-size: 12px;
+    }
+    &-header {
+      .open-post {
+        font-size: 16px;
+      }
+    }
+  }
+  .stories {
+    grid-template-columns: repeat(6, 14vw);
+    .white-circle {
+      display: none;
+    }
+    .create-story-card,
+    .story {
+      height: 30vw;
+    }
   }
 }
