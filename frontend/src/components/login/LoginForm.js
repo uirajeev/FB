@@ -35,7 +35,7 @@ const LoginForm = ({ setRegister }) => {
     setLoading(true);
     setError('');
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, {
+      .post(`${process.env.REACT_APP_API_URL}/user/login`, {
         email,
         password,
       })

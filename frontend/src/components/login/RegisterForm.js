@@ -58,7 +58,7 @@ const RegisterForm = ({ setRegister }) => {
   }) => {
     setLoading(true);
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
+      .post(`${process.env.REACT_APP_API_URL}/user/register`, {
         first_name,
         last_name,
         email,
