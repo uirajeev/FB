@@ -183,3 +183,18 @@ export const login = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+// Auth
+export const auth = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id); 
+    if (!user) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+    res.json(crateSession(user, '7d'));
+  }
+  catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

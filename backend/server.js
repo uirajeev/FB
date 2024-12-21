@@ -30,7 +30,7 @@ readdirSync('./routes').map(async r => {
 });
 
 // DB Connection
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   dbName: 'facebook'
 }).then(() => console.log('DB connected...'))
