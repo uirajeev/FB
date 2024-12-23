@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Formik, Form } from 'formik';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { login } from '../../store/slices/userSlice';
-import Cookies from 'js-cookie';
 import DotLoader from 'react-spinners/DotLoader';
+import { Formik, Form } from 'formik';
+import Cookies from 'js-cookie';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
+import { login } from '../../store/slices/userSlice';
 
 import LoginInut from '../form/login';
 import './loginForm.scss';
@@ -44,7 +43,7 @@ const LoginForm = ({ setRegister }) => {
         setError('');
         dispatch(login(data));
         Cookies.set('user', JSON.stringify(data));
-        navigate('/');
+        navigate('/', { replace: true });
       })
       .catch((error) => {
         setLoading(false);

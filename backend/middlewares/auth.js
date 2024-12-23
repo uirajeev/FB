@@ -6,7 +6,6 @@ export const authUser = async (req, res, next) => {
         if (!token) return res.status(401).json({ message: 'Access Denied' });
         const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
         req.user = decoded;
-        console.log(decoded);
         next();
     } catch (error) {
         return res.status(401).json({ message: error.message });

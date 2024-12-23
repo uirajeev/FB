@@ -8,7 +8,10 @@ const userSlice = createSlice({
     login(state, action) {
       return action.payload;
     },
+    verify(state, action) {
+      return { ...state, verified: action.payload };
+    },
   },
 });
-export const { login } = userSlice.actions;
+export const { login, verify } = userSlice.actions;
 export default userSlice.reducer;

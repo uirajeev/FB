@@ -5,6 +5,7 @@ import Home from './pages/home';
 import './App.scss';
 import LoggedinRoutes from './routes/LoggedinRoutes';
 import NotLoggedinRoutes from './routes/NotLoggedinRoutes';
+import ActivateAccount from './pages/home/activateAccount';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route element={<LoggedinRoutes />}>
         <Route path="/profile" element={<Profile />} exact />
         <Route path="/" element={<Home />} exact />
+        <Route path="/activate/:token" element={<ActivateAccount />} exact />
       </Route>
     </Routes>
   );

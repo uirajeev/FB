@@ -53,7 +53,7 @@ const SearchMenu = ({ color, setShowSearch }) => {
         </div>
       </div>
       <div className="search-header">
-        <span>{t('header.recent')}</span> <a>{t('header.edit')}</a>
+        <span>{t('header.recent')}</span> <button className="btn-link">{t('header.edit')}</button>
       </div>
       <div className="search-history">
         <div className="search-results-scrollbar"></div>

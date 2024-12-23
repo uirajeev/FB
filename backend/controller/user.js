@@ -146,8 +146,7 @@ export const activateAccount = async (req, res) => {
     const { token } = req.body;
     const userTokenInfo = jwt.verify(token, process.env.TOKEN_SECRET);
     const user = await User.findById(userTokenInfo.id);
-    console.log(userTokenInfo);
-    if (user.verified) {
+    if (user?.verified) {
       return res
         .status(400)
         .json({ message: 'This email ID has already been activated.' });

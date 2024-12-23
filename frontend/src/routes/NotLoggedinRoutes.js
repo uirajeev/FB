@@ -4,7 +4,7 @@ import Login from '../pages/login';
 
 const NotLoggedinRoutes = () => {
   const { user } = useSelector((state) => ({ ...state }));
-  return user ? <Navigate to="/" /> : <Login />;
+  return user ? <Navigate to="/" replace /> : <Login />;
 };
 
 export default NotLoggedinRoutes;
