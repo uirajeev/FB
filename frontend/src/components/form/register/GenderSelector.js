@@ -20,13 +20,13 @@ const GenderSelector = ({ handleChange, genderError }) => {
           onChange={handleChange}
         />
       </label>
-      <label htmlFor="femail">
-        {t('signup.femail')}
+      <label htmlFor="female">
+        {t('signup.female')}
         <input
           type="radio"
           name="gender"
-          id="femail"
-          value="femail"
+          id="female"
+          value="female"
           onChange={handleChange}
         />
       </label>

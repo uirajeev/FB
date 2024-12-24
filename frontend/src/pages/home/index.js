@@ -4,6 +4,8 @@ import HomeLeft from './left';
 import HomeRight from './right';
 import Stories from './stories';
 import CreatePost from '../../components/createPost';
+import BaseCard from '../../components/baseCard';
+import SandVerificationEmail from '../../components/sendVerificationEmail';
 
 import './style.scss';
 
@@ -17,7 +19,14 @@ const Home = () => {
       <HomeLeft user={user} />
       <article className="home-middle">
         <Stories />
-        <CreatePost user={user} />
+        {
+          user.verified ? null : <BaseCard cssClass="cr-post">
+            <SandVerificationEmail user={user} />
+          </BaseCard>
+        }
+        <BaseCard cssClass="cr-post">
+          <CreatePost user={user} />
+        </BaseCard>
       </article>
       <HomeRight user={user} />
     </div>

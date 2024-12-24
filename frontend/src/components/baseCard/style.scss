@@ -1,0 +1,10 @@
+.base-card {
+    background: var(--bg-primary);
+    border-radius: 10px;
+    box-shadow: 0 1px 2px var(--shadow-1);
+    padding: 10px 15px;
+
+    & +.base-card {
+        margin-top: 15px;
+    }
+}

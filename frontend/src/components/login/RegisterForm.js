@@ -6,7 +6,7 @@ import DotLoader from 'react-spinners/DotLoader';
 import Cookies from 'js-cookie';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import fetchData from '../../helpers/fetchData';
 import { login } from '../../store/slices/userSlice';
 import RegisterInut from '../form/register';
 import DateSelector from '../form/register/DateSelector';
@@ -45,7 +45,7 @@ const RegisterForm = ({ setRegister }) => {
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const registerSubmit = ({
+  const registerSubmit = async ({
     first_name,
     last_name,
     email,
@@ -56,33 +56,31 @@ const RegisterForm = ({ setRegister }) => {
     gender,
   }) => {
     setLoading(true);
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/user/register`, {
-        first_name,
-        last_name,
-        email,
-        password,
-        bYear,
-        bMonth,
-        bDay,
-        gender,
-      })
-      .then(function ({ data }) {
-        setLoading(false);
-        setError('');
-        const { message, ...rest } = data;
-        setSuccess(message);
-        setTimeout(() => {
-          dispatch(login(rest));
-          Cookies.set('user', JSON.stringify(rest));
-          navigate('/', { replace: true });
-        }, 2000);
-      })
-      .catch(function (error) {
-        setLoading(false);
-        setSuccess('');
-        setError(error.response.data.message || error.message);
-      });
+    const { success, data, error } = await fetchData('/user/register', 'POST', {
+      first_name,
+      last_name,
+      email,
+      password,
+      bYear,
+      bMonth,
+      bDay,
+      gender,
+    });
+    if (success) {
+      setError('');
+      const { message, ...rest } = data;
+      setSuccess(message);
+      setTimeout(() => {
+        dispatch(login(rest));
+        Cookies.set('user', JSON.stringify(rest));
+        navigate('/', { replace: true });
+      }, 2000);
+    }
+    if (error) {
+      setSuccess('');
+      setError(error);
+    }
+    setLoading(false);
   };
 
   return (

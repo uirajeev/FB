@@ -202,3 +202,21 @@ export const auth = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+
+export const resendVerificationEmail = async (req, res) => {  
+  try {
+    const id = req.user.id;
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(400).json({ message: 'User not found' });
+    }
+    if (user.verified) {
+      return res.status(400).json({ message: 'This email ID has already been activated.' });
+    }
+    sendMail(user);
+    res.json({ message: 'Verification email sent successfully!' });
+  } catch (err) {   
+    res.status(500).json({ message: err.message });
+  }
+}
