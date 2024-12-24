@@ -225,3 +225,11 @@ a {
     gap: 10px;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .popup {
+    width: 80vw;
+  }
+  
+}
+/*---------Popup End----------*/

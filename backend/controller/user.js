@@ -144,8 +144,13 @@ export const register = async (req, res) => {
 export const activateAccount = async (req, res) => {
   try {
     const { token } = req.body;
+    const id = req.user.id;
     const userTokenInfo = jwt.verify(token, process.env.TOKEN_SECRET);
     const user = await User.findById(userTokenInfo.id);
+
+    if (id !== user.id) {
+      return res.status(400).json({ message: 'Invalid token' });
+    }
     if (user?.verified) {
       return res
         .status(400)
