@@ -79,6 +79,11 @@ a {
     color: #fff;
   }
 
+  &-gray {
+    background: var(--bg-third);
+    color: var(--color-primary);
+  }
+
   &-link {
     background: none;
     border: none;
@@ -190,7 +195,11 @@ a {
 .rotate180 {
   transform: rotate(180deg);
 }
-
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 /*---------Popup----------*/
 .popup {

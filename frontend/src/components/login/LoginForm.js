@@ -85,7 +85,7 @@ const LoginForm = ({ setRegister }) => {
               </Form>
             )}
           </Formik>
-          <Link className='forgot-password' to='/forgot'>
+          <Link className='forgot-password' to='/reset'>
             {t('login.forgotLabel')}
           </Link>
           <div className='error-text text-center'>{error}</div>

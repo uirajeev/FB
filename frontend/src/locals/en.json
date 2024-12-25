@@ -397,5 +397,27 @@
   "fetch": {
     "loading": "Loading...",
     "error": "Something went wrong"
+  },
+  "reset": {
+    "header": "Find Your Account",
+    "subheader": "Enter your email address or mobile number to search for your account.",
+    "email": "Email address or Phone number",
+    "emailRequire": "Email address is require.",
+    "emailinvalid": "Please enter a valid email address.",
+    "search": "Search",
+    "back": "Back to login",
+    "cancle": "Cancle",
+    "continue": "Continue",
+    "notYou": "Not you?",
+    "send": "Send",
+    "codeVerify": "Code Verification",
+    "codeSubTitle": "Enter the code that been sent to your email.",
+    "code": "Enter the code",
+    "resetPassword": "Reset Your Password",
+    "subTitle": "How do you want to receive the code to reset your password?",
+    "sendEmailToReset": "Send reset code to:",
+    "fbUser": "Facebook User",
+    "emailSent": "An email has been sent to your email address",
+    "emailNotSent": "An email has not been sent to your email address"
   }
 }

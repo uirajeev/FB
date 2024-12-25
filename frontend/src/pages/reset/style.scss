@@ -1,0 +1,32 @@
+.reset {
+    height: 100vh;
+    background-color: var(--bg-secondary);
+    color: var(--color-primary);
+
+    &__header {
+        background-color: var(--bg-primary);
+        box-shadow: 1px 8px 15px var(--shadow-1);
+        color: var(--color-secondary);
+        padding: 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+
+        img {
+            width: 160px;
+        }
+
+        &__title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
