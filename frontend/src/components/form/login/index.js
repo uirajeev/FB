@@ -2,11 +2,16 @@ import './style.scss';
 import { ErrorMessage, useField } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 
-const LoginInut = ({ placeholder, type, handleChange, bottom, ...props }) => {
+const LoginInut = ({ placeholder, type, bottom, setValue = () => {}, ...props}) => {
   const [fields, meta] = useField(props.name);
   const desktopView = useMediaQuery({
     query: '(min-width: 850px)',
   });
+
+  const updateValue = (e) => {
+    props.formik.handleChange(e)
+    setValue(e.target.value);
+  }
 
   return (
     <div className="login-input">
@@ -29,8 +34,8 @@ const LoginInut = ({ placeholder, type, handleChange, bottom, ...props }) => {
         type={type}
         name={fields.name}
         placeholder={placeholder}
-        onChange={handleChange}
-        {...fields}
+        onChange={updateValue}
+        onBlur={props.formik.handleBlur}
       />
       {meta.touched && meta.error && bottom && (
         <div

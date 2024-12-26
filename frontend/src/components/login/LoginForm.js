@@ -72,12 +72,14 @@ const LoginForm = ({ setRegister }) => {
                   type='text'
                   name='email'
                   placeholder={t('login.emailPlaceholder')}
+                  formik={formik}
                 />
                 <LoginInut
                   type='password'
                   name='password'
                   bottom
                   placeholder={t('login.passwordPlaceholder')}
+                  formik={formik}
                 />
                 <button className='btn btn-blue' type='submit'>
                   {t('login.loginButton')}

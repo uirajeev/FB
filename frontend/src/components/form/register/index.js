@@ -2,8 +2,14 @@ import './style.scss';
 import { ErrorMessage, useField } from 'formik';
 import { useMediaQuery } from 'react-responsive';
 
-const RegisterInut = ({ placeholder, type, ...props }) => {
+const RegisterInut = ({ placeholder, type, handleChange, setValue = () => {}, ...props }) => {
   const [fields, meta] = useField(props.name);
+
+  const updateValue = (e) => {
+    props.formik.handleChange(e)
+    setValue(e.target.value);
+  }
+
   const desktopView = useMediaQuery({
     query: '(min-width: 1024px)',
   });
@@ -15,7 +21,8 @@ const RegisterInut = ({ placeholder, type, ...props }) => {
         type={type}
         name={fields.name}
         placeholder={placeholder}
-        {...fields}
+        onChange={updateValue}
+        onBlur={props.formik.handleBlur}
       />
       {meta.touched && meta.error && (
         <div

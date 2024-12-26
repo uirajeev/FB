@@ -43,9 +43,10 @@
 
     &-error-desktop {
       position: absolute;
-      width: 300px;
-      left: -19.5rem;
+      max-width: 300px;
+      right: calc(100% + 10px);
       top: -3px;
+      width: max-content;
     }
 
     &-arrow-top {

@@ -59,6 +59,14 @@
                 }
             }
 
+            &__errors {
+                min-height: 30px;
+                span {
+                    display: inline-block;
+                    text-align: center;
+                }
+            }
+
             &__img {
                 max-width: 156px;
                 text-align: center;

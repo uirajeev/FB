@@ -121,18 +121,20 @@ const RegisterForm = ({ setRegister }) => {
             }
           }}
         >
-          {({ values, handleChange }) => (
+          {(formik) => (
             <Form className="register-form">
               <div className="register-row">
                 <RegisterInut
                   type="text"
                   placeholder={t('signup.firstname')}
                   name="first_name"
+                  formik={formik}
                 />
                 <RegisterInut
                   type="text"
                   placeholder={t('signup.lastname')}
                   name="last_name"
+                  formik={formik}
                 />
               </div>
               <div className="register-row">
@@ -140,6 +142,7 @@ const RegisterForm = ({ setRegister }) => {
                   type="text"
                   placeholder={t('signup.email')}
                   name="email"
+                  formik={formik}
                 />
               </div>
               <div className="register-row">
@@ -147,6 +150,7 @@ const RegisterForm = ({ setRegister }) => {
                   type="password"
                   placeholder={t('signup.password')}
                   name="password"
+                  formik={formik}
                 />
               </div>
               <div className="register-col">
@@ -154,8 +158,8 @@ const RegisterForm = ({ setRegister }) => {
                   {t('signup.birthLabel')} <i className="info_icon"></i>
                 </div>
                 <DateSelector
-                  values={values}
-                  handleChange={handleChange}
+                  values={formik.values}
+                  handleChange={formik.handleChange}
                   dateError={dateError}
                 />
               </div>
@@ -165,7 +169,7 @@ const RegisterForm = ({ setRegister }) => {
                 </div>
                 <GenderSelector
                   genderError={genderError}
-                  handleChange={handleChange}
+                  handleChange={formik.handleChange}
                 />
               </div>
               <div className="register-info">

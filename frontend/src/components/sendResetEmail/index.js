@@ -1,13 +1,33 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import BaseCard from '../baseCard';
+import fetchData from '../../helpers/fetchData';
+import InlineLoader from '../inlineLoader';
 
 import './style.scss';
 
-const SendResetEmail = ({ setStep, user }) => {
+const SendResetEmail = ({ user, setStep }) => {
   const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const goBack = () => {
     setStep(0);
   };
+
+  const sendCode = async () => {
+    setLoading(true);
+    setError('');
+    const { success, error } = await fetchData('/user/sendcode', 'POST', {
+      email: user.email,
+    });
+    if (success) {
+      setStep(2);
+    } else {
+      setError(error);
+    }
+    setLoading(false);
+  };
+
   return (
     <div className='reset__content'>
       <BaseCard>
@@ -34,12 +54,16 @@ const SendResetEmail = ({ setStep, user }) => {
               </div>
             </div>
           </div>
+          <InlineLoader loading={loading} error={error} />
           <hr className='splitter' />
+
           <div className='search__content__form__buttons'>
             <button className='btn btn-gray' onClick={goBack}>
               {t('reset.notYou')}
             </button>
-            <button className='btn btn-blue'>{t('reset.send')}</button>
+            <button className='btn btn-blue' onClick={sendCode}>
+              {t('reset.send')}
+            </button>
           </div>
         </div>
       </BaseCard>

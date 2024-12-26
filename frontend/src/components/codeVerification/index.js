@@ -1,15 +1,45 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
+import fetchData from '../../helpers/fetchData';
 import BaseCard from '../baseCard';
 import LoginInut from '../form/login';
+import InlineLoader from '../inlineLoader';
 
 import './style.scss';
 
-const CodeVerification = ({ code, setCode, error, setStep }) => {
+const CodeVerification = ({ user, setStep }) => {
   const { t } = useTranslation();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
   const goBack = () => {
     setStep(0);
   };
+
+  const verifyCode = async (values) => {
+    setLoading(true);
+    setError('');
+    const { success, error } = await fetchData('/user/verifycode', 'POST', {
+      code: values.code,
+      email: user.email,
+    });
+    if (success) {
+      setStep(3);
+    } else {
+      setError(error);
+    }
+    setLoading(false);
+  };
+
+  const validateCode = Yup.object({
+    code: Yup.string()
+      .required(t('reset.codeRequire'))
+      .min(5, t('reset.codeLength'))
+      .max(5, t('reset.codeLength')),
+  });
+
   return (
     <div className='reset__content'>
       <BaseCard>
@@ -22,8 +52,9 @@ const CodeVerification = ({ code, setCode, error, setStep }) => {
         <div className='search__content__form'>
           <Formik
             enableReinitialize
-            initialValues={{ code }}
-            onSubmit={(values) => console.log(values)}
+            initialValues={{ code: '' }}
+            validationSchema={validateCode}
+            onSubmit={verifyCode}
           >
             {(formik) => (
               <Form>
@@ -31,15 +62,17 @@ const CodeVerification = ({ code, setCode, error, setStep }) => {
                   type='text'
                   name='code'
                   placeholder={t('reset.code')}
-                  onChange={(e) => setCode(e.target.value)}
+                  formik={formik}
                 />
-                {error && <p className='error-text'>{error}</p>}
+                <InlineLoader loading={loading} error={error} />
                 <hr className='splitter' />
                 <div className='search__content__form__buttons'>
                   <button className='btn btn-gray' onClick={goBack}>
                     {t('reset.cancle')}
                   </button>
-                  <button className='btn btn-blue'>{t('reset.continue')}</button>
+                  <button type='submit' className='btn btn-blue'>
+                    {t('reset.continue')}
+                  </button>
                 </div>
               </Form>
             )}
