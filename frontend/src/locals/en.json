@@ -384,7 +384,10 @@
     "inYourMing": "What's on your mind,",
     "liveVideo": "Live video",
     "photo": "Photo/Video",
-    "feeling": "Feeling/Activity"
+    "feeling": "Feeling/Activity",
+    "createPost": "Create Post (📨)",
+    "public": "Public",
+    "whatsInMind": "What's on you mind (🤯), "
   },
   "user": {
     "verifyText": "Your account has not been verified yet. Please verify it before it gets deleted one month after creation.",
@@ -421,8 +424,6 @@
     "resetPassword": "Reset Your Password",
     "subTitle": "How do you want to receive the code to reset your password?",
     "sendEmailToReset": "Send reset code to:",
-    "fbUser": "Facebook User",
-    "emailSent": "An email has been sent to your email address",
-    "emailNotSent": "An email has not been sent to your email address"
+    "fbUser": "Facebook User"
   }
 }
