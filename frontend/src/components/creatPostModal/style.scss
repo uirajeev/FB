@@ -66,60 +66,9 @@
         }
     }
 
-    &__input {
-        position: relative;
-        outline: none;
-        border: none;
-        resize: none;
-        padding: 5px 15px;
-        margin-bottom: 10px;
-        width: 470px;
-        margin-left: 1px;
-        font-family: inherit;
-        font-size: 24px;
-        background: var(--bg-primary);
-        color: var(--color-primary);
-    }
-
-    &__post {
-        position: relative;
-        min-height: 90px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        textarea {
-            min-height: 90px;
-            background: transparent;
-            overflow-y: visible;
-            position: absolute;
-        }
-    }
-
-    &__emojis {
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        padding: 10px 15px;
-
-        img{
-            width: 39px;
-            cursor: pointer;
-        }
-
-        i:hover {
-            filter: invert(1);
-        }
-
-        &__picker {
-            position: absolute;
-            right: 0;
-            bottom: 2.5rem;
-        }
-    }
-
-    .rlmove {
-        right: -25%;
+    .post-button {
+        display: block;
+        width: calc(100% - 20px);
+        margin: 5px auto;
     }
 }

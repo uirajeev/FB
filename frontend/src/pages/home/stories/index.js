@@ -1,4 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
+import useCssRootColor from '../../../hooks/useCssRootColor';
 import { ArrowRight, Plus } from '../../../svg';
 import { stories } from '../../../data/home';
 import './style.scss';
@@ -38,7 +39,7 @@ const Stories = () => {
           className="create-story-card"
         />
         <div className="create-story-icon">
-          <Plus color="#fff" />
+          <Plus color={useCssRootColor('--bg-primary')} />
         </div>
         <div className="create-story-text">Create Story</div>
       </div>
@@ -46,7 +47,7 @@ const Stories = () => {
         <Story story={story} key={story.profile_name} />
       ))}
       <div className="white-circle">
-        <ArrowRight color="#65676b" />
+        <ArrowRight color={useCssRootColor('--color-secondary')} />
       </div>
     </div>
   );

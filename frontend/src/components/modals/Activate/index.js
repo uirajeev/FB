@@ -1,5 +1,5 @@
 import PropagateLoader from 'react-spinners/PropagateLoader';
-
+import useCssRootColor from '../../../hooks/useCssRootColor';
 export default function Activate({type, header, text, loading}) {
   return (
     <div className='blur'>
@@ -11,7 +11,7 @@ export default function Activate({type, header, text, loading}) {
           <p>{text}</p>
         </div>
         <div className='popup__footer'>
-          <PropagateLoader color='#1876f2' size={30} loading={loading} />
+          <PropagateLoader color={useCssRootColor('--blue-color')} size={30} loading={loading} />
         </div>
       </div>
     </div>

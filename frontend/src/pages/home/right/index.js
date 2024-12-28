@@ -1,9 +1,10 @@
 import { Dots, NewRoom, Search } from '../../../svg';
+import useCssRootColor from '../../../hooks/useCssRootColor';
 import Contact from './Contact';
 import './style.scss';
 
 const HomeRight = ({ user }) => {
-  const iconColor = '#65676b';
+  const iconColor = useCssRootColor('--color-secondary');
   return (
     <aside className="right-home">
       <div className="right-heading">Sponsored</div>

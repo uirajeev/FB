@@ -6,6 +6,7 @@ import DotLoader from 'react-spinners/DotLoader';
 import Cookies from 'js-cookie';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import useCssRootColor from '../../hooks/useCssRootColor';
 import fetchData from '../../helpers/fetchData';
 import { login } from '../../store/slices/userSlice';
 import RegisterInut from '../form/register';
@@ -18,6 +19,7 @@ const RegisterForm = ({ setRegister }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const loaderColor = useCssRootColor('--blue-color');
 
   const validation = Yup.object({
     first_name: Yup.string()
@@ -199,7 +201,7 @@ const RegisterForm = ({ setRegister }) => {
               {success && (
                 <div className="success-text text-center">{success}</div>
               )}
-              <DotLoader color="#1876f2" size={30} loading={loading} />
+              <DotLoader color={loaderColor} size={30} loading={loading} />
             </Form>
           )}
         </Formik>

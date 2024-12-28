@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import useCssRootColor from '../../hooks/useCssRootColor';
 import useClickOutside from '../../helpers/ClickOutside';
 
 import AllMenu from './allMenu/AllMenu';
@@ -24,7 +25,7 @@ import './style.scss';
 import UserMenu from '../header/userMenu';
 
 const Header = () => {
-  const icon_color = '#65676b';
+  const icon_color = useCssRootColor('--color-secondary');
   const { t } = useTranslation();
   const user = useSelector((state) => state.user);
   const allMenu = useRef(null);

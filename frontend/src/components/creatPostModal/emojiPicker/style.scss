@@ -1,0 +1,59 @@
+.post {
+
+    &__emojis {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 10px 15px;
+
+        img{
+            width: 39px;
+            cursor: pointer;
+        }
+
+        i:hover {
+            filter: invert(1);
+        }
+
+        &__picker {
+            position: absolute;
+            right: 0;
+            bottom: 2.5rem;
+           
+            &.move-picker-top {
+                right: 1rem;
+                top: 9.5rem;
+                z-index: 9999;
+            }
+        }
+        .rlmove {
+            right: -25%;
+        }
+    }
+
+    
+
+    &__post {
+        position: relative;
+        min-height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        textarea {
+            min-height: 90px;
+            background: transparent;
+            overflow-y: visible;
+            outline: none;
+            border: none;
+            resize: none;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 470px;
+            font-family: inherit;
+            font-size: 24px;
+            color: var(--color-primary);
+        }
+    }
+}

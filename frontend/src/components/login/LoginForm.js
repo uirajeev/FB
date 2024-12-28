@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import DotLoader from 'react-spinners/DotLoader';
 import { Formik, Form } from 'formik';
 import Cookies from 'js-cookie';
+import useCssRootColor from '../../hooks/useCssRootColor';
 import fetchData from '../../helpers/fetchData';
 import * as Yup from 'yup';
 import { login } from '../../store/slices/userSlice';
@@ -91,7 +92,7 @@ const LoginForm = ({ setRegister }) => {
             {t('login.forgotLabel')}
           </Link>
           <div className='error-text text-center'>{error}</div>
-          <DotLoader color='#1876f2' size={30} loading={loading} />
+          <DotLoader color={useCssRootColor('--blue-color')} size={30} loading={loading} />
           <hr className='sign-splitter' />
           <button
             type='button'

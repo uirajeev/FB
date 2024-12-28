@@ -7,7 +7,7 @@ import ActivateAccount from './pages/home/activateAccount';
 import './App.scss';
 import LoggedinRoutes from './routes/LoggedinRoutes';
 import NotLoggedinRoutes from './routes/NotLoggedinRoutes';
-import CreatPostModal from './components/modals/creatPostModal';
+import CreatPostModal from './components/creatPostModal';
 
 function App() {
   return (
