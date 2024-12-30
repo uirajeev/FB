@@ -1,10 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import { Dots, Feeling, Photo } from '../../../svg';
 import useCssRootColor from '../../../hooks/useCssRootColor';
 import './style.scss';
 const AddToPost = ({setShowPreview}) => {
+  const {t} = useTranslation();
   return (
     <div className='addtopost'>
-      <div className='addtopost__title'>Add to your post</div>
+      <div className='addtopost__title'>{t('post.addToPost')}</div>
       <div className='addtopost__icon hover1' onClick={() => setShowPreview(true)}>
         <Photo color={useCssRootColor('--green-color-dark')} />
       </div>

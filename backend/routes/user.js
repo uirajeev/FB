@@ -18,7 +18,7 @@ router.post('/register', register);
 router.post('/activate', authUser, activateAccount);
 router.post('/login', login);
 router.post('/auth', auth);
-router.post('/resendverifemail', authUser, resendVerificationEmail);
+router.post('/resendverifyemail', authUser, resendVerificationEmail);
 router.post('/finduser', findUser);
 router.post('/sendcode', sendResetEmail);
 router.post('/verifycode', verifyCode);

@@ -12,7 +12,7 @@ const SandVerificationEmail = ({ user }) => {
     const headers = {
       Authorization: `Bearer ${user.token}`,
     };
-    const { success } = await fetchData('/user/resendverifemail', 'POST', null, headers);
+    const { success } = await fetchData('/user/resendverifyemail', 'POST', null, headers);
     if (success) {
         setSuccess(true);
       } else {

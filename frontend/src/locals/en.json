@@ -392,7 +392,8 @@
     "addPhotoVideo": "Add Photos/Videos",
     "dragDrop": "or drag and drop",
     "addFromPhone": "Add photos from your mobile device",
-    "add": "Add"
+    "add": "Add",
+    "addToPost": "Add to your post"
   },
   "user": {
     "verifyText": "Your account has not been verified yet. Please verify it before it gets deleted one month after creation.",

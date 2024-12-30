@@ -1,23 +1,55 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { PulseLoader } from 'react-spinners';
+import useClickOutside from '../../helpers/ClickOutside';
+import useCssRootColor from '../../hooks/useCssRootColor';
+import createPost from '../../helpers/creatPost';
 import EmojiPicker from './emojiPicker';
 import AddToPost from './addToPost';
 import ImagePreview from './imagePreview';
 import './style.scss';
 
-const CreatPostModal = () => {
+const CreatPostModal = ({ setVisible }) => {
   const user = useSelector((state) => state.user);
   const { t } = useTranslation();
+  const modalRef = useRef(null);
   const [text, setText] = useState('');
-  const [showPreview, setShowPreview] = useState(true);
+  const [showPreview, setShowPreview] = useState(false);
   const [images, setImages] = useState([]);
+  const [background, setBackground] = useState('');
+  const [loading, setLoading] = useState(false);
+  const color = useCssRootColor('--bg-primary');
+
+  const postData = async () => {
+    setLoading(true);
+    const data = await createPost(
+      null,
+      background,
+      text,
+      images,
+      user.id,
+      user.token
+    );
+    setLoading(false);
+    setBackground('');
+    setText('');
+    setVisible(false);
+    console.log(data);
+  };
+
+  useClickOutside(modalRef, () => {
+    setVisible(false);
+  });
 
   return (
     <div className='blur'>
-      <div className='post-box'>
+      <div className='post-box' ref={modalRef}>
         <div className='post-box__header'>
-          <div className='post-box__header__circle small-circle'>
+          <div
+            className='post-box__header__circle small-circle'
+            onClick={() => setVisible(false)}
+          >
             <i className='exit_icon'></i>
           </div>
           <span>{t('post.createPost')}</span>
@@ -41,7 +73,12 @@ const CreatPostModal = () => {
           </div>
         </div>
         {!showPreview ? (
-          <EmojiPicker text={text} user={user} setText={setText} />
+          <EmojiPicker
+            text={text}
+            user={user}
+            setText={setText}
+            setBackground={setBackground}
+          />
         ) : (
           <ImagePreview
             text={text}
@@ -53,7 +90,17 @@ const CreatPostModal = () => {
           />
         )}
         <AddToPost setShowPreview={setShowPreview} />
-        <button className='btn btn-blue post-button'>{t('post.post')}</button>
+        <button
+          className='btn btn-blue post-button'
+          onClick={postData}
+          disabled={loading}
+        >
+          {loading ? (
+            <PulseLoader size={8} color={color} />
+          ) : (
+            t('post.post')
+          )}
+        </button>
       </div>
     </div>
   );

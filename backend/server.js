@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import fileUpload from 'express-fileupload';
 import 'dotenv/config';
 import cors from 'cors';
 import mongoose from 'mongoose';
@@ -16,12 +17,14 @@ const app = express();
 // User cors
 app.use(cors());
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-
 // parse application/json
 app.use(bodyParser.json());
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// express file upload
+app.use(fileUpload({useTempFile: true}));
 
 // router
 readdirSync('./routes').map(async r => {

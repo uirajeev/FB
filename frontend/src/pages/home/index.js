@@ -9,7 +9,7 @@ import SandVerificationEmail from '../../components/sendVerificationEmail';
 
 import './style.scss';
 
-const Home = () => {
+const Home = ({setVisible}) => {
   
   const user = useSelector((state) => state.user);
   
@@ -25,7 +25,7 @@ const Home = () => {
           </BaseCard>
         }
         <BaseCard cssClass="cr-post">
-          <CreatePost user={user} />
+          <CreatePost user={user} setVisible={setVisible} />
         </BaseCard>
       </article>
       <HomeRight user={user} />
