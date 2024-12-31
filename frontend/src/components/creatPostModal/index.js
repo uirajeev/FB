@@ -5,9 +5,11 @@ import { PulseLoader } from 'react-spinners';
 import useClickOutside from '../../helpers/ClickOutside';
 import useCssRootColor from '../../hooks/useCssRootColor';
 import createPost from '../../helpers/creatPost';
+import creatImagePost from '../../helpers/createImagePost';
 import EmojiPicker from './emojiPicker';
 import AddToPost from './addToPost';
 import ImagePreview from './imagePreview';
+import PostError from './postError';
 import './style.scss';
 
 const CreatPostModal = ({ setVisible }) => {
@@ -17,25 +19,52 @@ const CreatPostModal = ({ setVisible }) => {
   const [text, setText] = useState('');
   const [showPreview, setShowPreview] = useState(false);
   const [images, setImages] = useState([]);
-  const [background, setBackground] = useState('');
+  const [background, setBackground] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const color = useCssRootColor('--bg-primary');
 
   const postData = async () => {
+    if (!text && images.length === 0) {
+      setError('Please right you post!');
+      return;
+    }
     setLoading(true);
-    const data = await createPost(
+    const postText = text ? text : null;
+
+    if (images.length) {
+      const { success, data, error } = await creatImagePost(
+        images,
+        postText,
+        null,
+        user
+      );
+      if (success) {
+        setText('');
+        setVisible(false);
+      } else {
+        setError(error);
+      }
+      setLoading(false);
+      return;
+    }
+    
+    const { success, error } = await createPost(
       null,
       background,
-      text,
-      images,
+      postText,
+      null,
       user.id,
       user.token
     );
     setLoading(false);
-    setBackground('');
-    setText('');
-    setVisible(false);
-    console.log(data);
+    if (success) {
+      setBackground(null);
+      setText('');
+      setVisible(false);
+    } else {
+      setError(error);
+    }
   };
 
   useClickOutside(modalRef, () => {
@@ -45,6 +74,7 @@ const CreatPostModal = ({ setVisible }) => {
   return (
     <div className='blur'>
       <div className='post-box' ref={modalRef}>
+        {error && <PostError error={error} setError={setError} />}
         <div className='post-box__header'>
           <div
             className='post-box__header__circle small-circle'
@@ -87,6 +117,7 @@ const CreatPostModal = ({ setVisible }) => {
             setImages={setImages}
             setText={setText}
             setShowPreview={setShowPreview}
+            setError={setError}
           />
         )}
         <AddToPost setShowPreview={setShowPreview} />
@@ -95,11 +126,7 @@ const CreatPostModal = ({ setVisible }) => {
           onClick={postData}
           disabled={loading}
         >
-          {loading ? (
-            <PulseLoader size={8} color={color} />
-          ) : (
-            t('post.post')
-          )}
+          {loading ? <PulseLoader size={8} color={color} /> : t('post.post')}
         </button>
       </div>
     </div>

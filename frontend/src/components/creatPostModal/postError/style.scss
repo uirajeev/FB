@@ -1,0 +1,26 @@
+.post {
+  &__error {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    border-radius: 10px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+    overflow: hidden;
+    animation: slideRight 0.2s ease-in;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

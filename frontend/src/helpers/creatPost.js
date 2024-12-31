@@ -1,7 +1,6 @@
 import fetchData from './fetchData';
 
 const createPost = async (type, background, text, images, user, token) => {
-  console.log(token);
   const { success, data, error } = await fetchData(
     '/post/create',
     'POST',
@@ -17,9 +16,9 @@ const createPost = async (type, background, text, images, user, token) => {
     }
   );
   if (success) {
-    return data;
+    return { success, data };
   } else {
-    return error;
+    return { error };
   }
 };
 

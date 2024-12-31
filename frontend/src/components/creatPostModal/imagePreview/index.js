@@ -9,6 +9,7 @@ const ImagePreview = ({
   setImages,
   setText,
   setShowPreview,
+  setError,
 }) => {
   const imageInput = useRef(null);
   const { t } = useTranslation();
@@ -16,6 +17,21 @@ const ImagePreview = ({
   const handleImage = (e) => {
     const files = Array.from(e.target.files);
     files.forEach((img) => {
+      if (
+        img.type !== 'image/jpeg' &&
+        img.type !== 'image/jpg' &&
+        img.type !== 'image/png' &&
+        img.type !== 'image/gif' &&
+        img.type !== 'image/webp'
+      ) {
+        setError(
+          `${img.name} format is unsupported! Only use jpg, jpeg, png, gif, webp`
+        );
+        return;
+      } else if (img.size > 1024 * 1024) {
+        setError(`${img.name} size is too large max 5mb allowed.`);
+        return;
+      }
       const reader = new FileReader();
       reader.readAsDataURL(img);
       reader.onload = (readEvent) => {
@@ -32,6 +48,7 @@ const ImagePreview = ({
       <div className='image-preview__add'>
         <input
           type='file'
+          accept='image/jpeg,image/png,image/gif,image/webp,image/jpg'
           multiple
           hidden
           ref={imageInput}
@@ -65,7 +82,7 @@ const ImagePreview = ({
               } `}
             >
               {images.map((img) => (
-                <img src={img} alt='' />
+                <img src={img} alt='' key={img} />
               ))}
             </div>
           </div>

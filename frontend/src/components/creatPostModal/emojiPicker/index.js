@@ -29,7 +29,7 @@ const EmojiPicker = ({ text, user, setText, type2, setBackground }) => {
     const ref = textRef.current;
     setText(e.target.value);
     ref.style.height = 'auto'; // Reset height to calculate the new height
-    ref.style.height = `${ref.scrollHeight}px`;
+    ref.style.height = `${ref.scrollHeight + 20}px`;
   };
 
   const handelBackground = (i) => {
@@ -47,7 +47,7 @@ const EmojiPicker = ({ text, user, setText, type2, setBackground }) => {
       elm.classList.remove('hendal-post-bg');
       elm.removeAttribute('style');
       text.classList.remove(...Array.from(text.classList));
-      setBackground('');
+      setBackground(null);
     }
   };
 
