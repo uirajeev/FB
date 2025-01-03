@@ -1,14 +1,15 @@
 .left {
   &-home {
     position: fixed;
+    grid-area: left;
     top: 60px;
     left: 6px;
     max-height: calc(100vh - 65px);
-    width: 15vw;
     overflow-y: auto;
     color: var(--color-primary);
     padding: 10px 0;
     user-select: none;
+    max-width: 200px;
 
     &-link {
       display: flex;

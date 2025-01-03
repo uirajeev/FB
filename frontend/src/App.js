@@ -5,13 +5,14 @@ import Profile from './pages/profile';
 import Home from './pages/home';
 import Reset from './pages/reset';
 import ActivateAccount from './pages/home/activateAccount';
-import './App.scss';
 import LoggedinRoutes from './routes/LoggedinRoutes';
 import NotLoggedinRoutes from './routes/NotLoggedinRoutes';
 import CreatPostModal from './components/creatPostModal';
+import './App.scss';
 
 function App() {
   const [visible, setVisible] = useState(false);
+
   return (
     <>
       {visible && <CreatPostModal setVisible={setVisible} />}

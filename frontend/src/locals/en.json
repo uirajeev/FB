@@ -394,7 +394,13 @@
     "dragDrop": "or drag and drop",
     "addFromPhone": "Add photos from your mobile device",
     "add": "Add",
-    "addToPost": "Add to your post"
+    "addToPost": "Add to your post",
+    "male": "his",
+    "femail": "her",
+    "other": "their",
+    "cover": "cover",
+    "profile": "profile",
+    "update": "updated {{gender}} {{type}} picture"
   },
   "user": {
     "verifyText": "Your account has not been verified yet. Please verify it before it gets deleted one month after creation.",

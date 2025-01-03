@@ -1,9 +1,7 @@
 .right {
-  &-home {
+  &-home{
+    top: 60px;
     position: fixed;
-    left: 80.7vw;
-    top: 4rem;
-    right: 10px;
   }
   &-heading {
     font-size: 16px;
